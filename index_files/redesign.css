@@ -4440,6 +4440,16 @@ header.scrolled {
   transition: all 0.3s ease 0s;
 }
 
+.red_btn {
+  padding: 15px 40px;
+  background: linear-gradient(135deg, #00e7ab 24%, #00ff2a 50%, #24ff00 79%, #7eff00 100%);
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  opacity: 0.8;
+  transition: all 0.3s ease 0s;
+}
+
 .blue_btn:hover {
   opacity: 1;
 }
