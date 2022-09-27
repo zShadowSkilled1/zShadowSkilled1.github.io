@@ -4460,7 +4460,7 @@ header.scrolled {
 
 .main_block.main {
   overflow: hidden;
-  background: url(./images/аrtboard_2.png) center top no-repeat;
+  background: url(./images/аrtboard_2.png?98d41c29a435f6429ca389b2832dfee9) center top no-repeat;
   min-height: 51vw;
   display: flex;
   align-items: center;
@@ -10072,4 +10072,3 @@ a[disabled] {
   filter: grayscale(1) !important;
   cursor: default;
 }
-
