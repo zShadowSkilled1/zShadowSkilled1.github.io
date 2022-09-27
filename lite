@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)./features.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="./Fav.ico" type="image/x-icon">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="f0WCYkDVuDuXPWm9SN88vWDDySzJiIOgH46gChKF">
+    <title>
+        Shadow's Hub Client - Features    </title>
+    <meta name="description" content="Shadow's Hub Client - Features">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./features_files/redesign.css">
+    <!-- Inline scripts -->
+    <link rel="dns-prefetch" href="https://certify.alexametrics.com/">
+<link rel="dns-prefetch" href="https://www.google.com/">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-74070933-1');
+</script>
+<!-- Google ReCaptcha -->
+
+<!-- End Google ReCaptcha -->
+<!-- Start Alexa Certify Javascript -->
+
+<!-- End Alexa Certify Javascript -->
+        <!-- Inline styles -->
+    </head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+    <div class="header_row">
+        <div class="hover_mobile"></div>
+        <div class="logo_header">
+            <a href="./index.html" class="logo"><img src="" alt=""></a>
+        </div>
+        <div class="header_burger">
+            <span></span>
+            <div class="touchable"></div>
+        </div>
+        <div class="header_menu">
+            <ul class="menu">
+
+  
+                                                            <li>
+                            <a href="https://raw.githubusercontent.com/zShadowSkilled1/Shadow-s-Hub/main/loadstring.lua" class="blue_btn menu-767">script</a>
+                        </li>
+                                                    <li>
+                    <a href="./features.html" class="menu-767">features</a>
+                </li>
+                <li>
+                    <a href="./buy.html" class="menu-767">script</a>
+                </li>
+                <li>
+                    <a href="https://app.shadowhub.xyz">Home</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="btn_buy_now">
+                                                <a href="https://raw.githubusercontent.com/zShadowSkilled1/Shadow-s-Hub/main/loadstring.lua" class="blue_btn">script</a>
+                                    </div>
+    </div>
+</div>
+    </header>
+        <section class="main_features">
+        <div class="compare_block">
+            <div class="container">
+            </div>
+        </div>
+        <div class="feature_table">
+            <div class="container">
+                <div class="compare_title">
+                    <h2>Feature List</h2>
+                </div>
+                <div class="compare_subtitle">
+                    <h5>Every feature included in Shadow's Hub Client.</h5>
+                </div>
+                <div class="start_btn">
+                    <a class="blue_btn" href="https://raw.githubusercontent.com/zShadowSkilled1/Shadow-s-Hub/main/loadstring.lua">Get The Script</a>
+                </div>
+                 <div class="table">
+                     <div class="table_menu">
+                         <ul>
+                             <li class="table_btn">
+                                 <a href="./features.html#element1" class="table_button active" data-table="table1">Character</a>
+                             </li>
+                             <li class="table_btn">
+                                 <a href="./features.html#element2" class="table_button" data-table="table1">Movements</a>
+                             </li>
+                             <li class="table_btn">
+                                 <a href="./features.html#element3" class="table_button" data-table="table2">Combat</a>
+                             </li>
+                             <li class="table_btn">
+                                 <a href="./features.html#element4" class="table_button" data-table="table2">Render</a>
+                             </li>
+                             <li class="table_btn">
+                                 <a href="./features.html#element5" class="table_button" data-table="table3">Utitlity</a>
+                             </li>
+                             <li class="table_btn">
+                                 <a href="./features.html#element6" class="table_button" data-table="table3">Misc</a>
+                             </li>
+                         </ul>
+                     </div>
+                     <div class="table_body">
+                         <div class="table_overall table_combat" id="element1">
+                            <div class="table_row heading">
+                                <div class="feature_name">Features</div>
+                                <div class="table_v4">Shadow's Hub V2</div>
+                                <div class="table_lite">Shadow's Hub V1</div>
+                            </div>
+                             <div class="table_row second_row">
+                                <div class="name_feature">Character</div>
+                                 <div class="nf_about">Allow You To Edit Your Charcter Settings.
+                                 </div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">MaxHealth</div>
+                                 <div class="sub_info_feature">
+                                    <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">Change Your MaxHealth To Any Number</div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1">
+                                     <img src="./features_files/check_pr.svg" alt="">
+                                 </div>
+                                 <div class="artwork">
+                                     <div class="img_art"><img src="./features.html" alt=""></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">Health</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Change Your Health To Any Number
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+                             <div class="table_row table_empty"></div>
+                             <div id="element2" class="table_row second_row">
+                                 <div class="name_feature">Movements</div>
+                                 <div class="nf_about">Change Your WalkSpeed And More
+                                 </div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">WalkSpeed</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+					     <div class="sub_info_info">Allow You To Change Your WalkSpeed</div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">Jump Power</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Allow You To Jump Higher
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"></div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">Infinite Jump</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Allow You To Jump In The Air
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"></div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">AntiCheat Bypass (SOON)</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Bypass AntiCheats To Avoid LagBacks
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row table_empty"></div>
+                             <div id="element3" class="table_row second_row">
+                                 <div class="name_feature">Combat</div>
+                                 <div class="nf_about">Advanatges When You Are Fighting
+                                 </div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">AimAssist</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Automatically Follow The Closest Player When You Press RightClick
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">AimAssist FOV Visible</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Choose If You Can See The AimAssist FOV Circle
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">AimAssist TeamCheck</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Check If The Current Player Is In Your Team
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">AimAssist FOV</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Allow You To Change The AimAssist FOV
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+                             <div class="table_row table_empty"></div>
+                             <div id="element4" class="table_row second_row">
+                                 <div class="name_feature">Render</div>
+                                 <div class="nf_about">Visuals Hacks To Help You See Others Players
+                                 </div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">FullBright</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Change The World Lighting
+                                     </div>
+                                                                  </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">Tracers</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Draw Lines Pointing At Players
+                                     </div>
+                                                                  </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+				     <div class="table_row odd">
+                                 <div class="sub_feature">NameTags</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Allow You To See Players Health & Name Behind Walls
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+					     <div class="table_row odd">
+                                 <div class="sub_feature">ESP Boxes</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Draw 2D Boxes On The Players
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row table_empty"></div>
+                             <div id="element5" class="table_row second_row">
+                                 <div class="name_feature">Utility</div>
+                                 <div class="nf_about">Utitlity Modules That Are For Fun
+                                 </div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">ChatSpammer</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Automatly Spam The Chat
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+				     <div class="table_row odd">
+                                 <div class="sub_feature">Chat Spammer Custom Messages</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Allow You To Customize The Chat Spammer Message
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+					     <div class="table_row odd">
+                                 <div class="sub_feature">ChatSpammer Delay</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Allow You To Set A Custom Delay For The Chat Spammer
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row table_empty"></div>
+                             <div id="element6" class="table_row second_row">
+                                 <div class="name_feature">Other features</div>
+                                 <div class="nf_about">Besides just the modules, Vape has several other unique and convenient features.
+                                 </div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">Internal GUI</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         GUI that is rendered inside your game window
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row odd">
+                                 <div class="sub_feature">Profiles</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Profiles are configurations which allow you to have multiple sets of different settings
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">Friends</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Adding your friends prevents you from targeting them with modules
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"><img src="./features_files/check_pr.svg" alt=""></div>
+                             </div>
+                             <div class="table_row">
+                                 <div class="sub_feature">Text GUI</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Shows a list of all currently enabled modules
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="mark mark_lite1"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                             </div>
+							 
+							 <div class="table_row">
+                                 <div class="sub_feature">Target Info</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Shows information about the player you are attacking, such as health and equipment, as an overlay on your screen
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"></div>
+                             </div>
+							 <div class="table_row odd">
+                                 <div class="sub_feature">Radar</div>
+                                 <div class="sub_info_feature">
+                                     <img class="s_i" src="./features_files/sub_info_h.svg" alt="">
+                                     <div class="sub_info_info">
+                                         Shows a 2D view of players around you
+                                     </div>
+                                 </div>
+                                 <div class="mark mark_v4"><img src="./features_files/check_pr.svg" alt=""></div>
+                                 <div class="artwork">
+                                     <div class="img_art"></div>
+                                     <a href="./img/artimg1.png" data-fancybox="" data-type="image" class="zoom"><img src="./features_files/zoom.svg" alt=""></a>
+                                 </div>
+                                 <div class="mark mark_lite"></div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                <div class="start_vape">
+                    <div class="start_title">Like steroids for Roblox</div>
+                    <div class="start_btn">
+                        <a class="blue_btn" href="https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/loadstring">Start vaping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <footer>
+    <div class="container">
+        <div class="footer_logo"><img src="./features_files/logo.webp" alt=""></div>
+        <div class="footer_row">
+            <div class="footer_menu">
+                <div class="footer_menu_main">
+                    <ul>
+                        <li>
+                            <a class="fm_left underline_blue" href="./">Home</a>
+                        </li>
+                        <li>
+                            <a class="fm_left underline_blue" href="./features.html">Features</a>
+                        </li>
+                        <li>
+                            <a class="fm_left underline_blue" href="https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/loadstring">Script</a>
+                        </li>
+                        <li>
+                            <a class="fm_left underline_blue" href="https://discord.gg/wjRYjVWkya">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+               
+            </div>
+        </div>
+        <div class="copyright">All rights goto, Manthe Industries LLC</div>
+    </div>
+</footer>
+    <script src="./features_files/redesign.js.download" type="text/javascript"></script>
+    </div>
