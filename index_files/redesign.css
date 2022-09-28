@@ -4460,7 +4460,7 @@ header.scrolled {
 
 .main_block.main {
   overflow: hidden;
-  background: url(./images/аrtboard_2.png?98d41c29a435f6429ca389b2832dfee9) center top no-repeat;
+  background: url(./images/artboard_2.png) center top no-repeat;
   min-height: 51vw;
   display: flex;
   align-items: center;
@@ -4483,12 +4483,14 @@ header.scrolled {
 
 .main_title1 h1 {
   font-size: 72px;
-  line-height: 1;
+  letter-spacing: -0.72px;
+  line-height: 1.3;
+  background: linear-gradient(45deg, #316AA4 33%, #7B6BB6 50%, #CE6CC9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #316AA4;
   font-weight: 600;
-  letter-spacing: -1.73px;
-  text-shadow: 0 0 99px #FFFFFF29;
-  background: linear-gradient(135deg, #00e7ab 24%, #00ff2a 50%, #24ff00 79%, #7eff00 100%);
-  color: #fff;
+  text-align: center;
 }
 
 .subtitle {
