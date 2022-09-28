@@ -4481,6 +4481,16 @@ header.scrolled {
   text-shadow: 0 0 99px #FFFFFF29;
 }
 
+.main_title1 h1 {
+  font-size: 72px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -1.73px;
+  text-shadow: 0 0 99px #FFFFFF29;
+  background: linear-gradient(135deg, #00e7ab 24%, #00ff2a 50%, #24ff00 79%, #7eff00 100%);
+  color: #fff;
+}
+
 .subtitle {
   margin-top: 50px;
   max-width: 565px;
