@@ -2,7 +2,7 @@ function checkUsername() {
   var username = document.getElementById("username").value;
 
   // Send an HTTP GET request to the server-side script
-  fetch("./username-api.php?username=" + encodeURIComponent(username))
+  fetch("https://zshadowskilled1.github.io/apis/username-api.php?username=" + encodeURIComponent(username))
     .then(response => response.text())
     .then(data => {
       if (data === "exists") {
