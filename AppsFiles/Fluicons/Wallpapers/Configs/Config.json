@@ -1,0 +1,10 @@
+{
+  "latestVersion": "1.0",
+  "latestVersionCode": 1,
+  "url": "https://github.com/zShadowSkilled1/zShadowSkilled1.github.io",
+  "releaseNotes": [
+    "This is the text which will be shown on update changelog",
+    "Another release note",
+    "You can use <b>text</b> <i>formatting</i> <u>here</u>"
+  ]
+}
