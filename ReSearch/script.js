@@ -2,6 +2,24 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 const resultsContainer = document.getElementById('resultsContainer');
 
+const resultPopup = document.getElementById('resultPopup');
+const closeButton = document.getElementById('closeButton');
+const popupTitle = document.getElementById('popupTitle');
+const popupDescription = document.getElementById('popupDescription');
+const popupAuthor = document.getElementById('popupAuthor');
+const overlay = document.getElementById('overlay');
+
+function openPopup(title, description, author) {
+    popupTitle.textContent = title;
+    popupDescription.textContent = description;
+    popupAuthor.textContent = 'Author: ' + author;
+    overlay.style.display = 'block';
+}
+
+function closePopup() {
+    overlay.style.display = 'none';
+}
+
 searchButton.addEventListener('click', async () => {
     const query = searchInput.value;
     const url = 'https://zshadowskilled1.github.io/AppsFiles/ReSearch/Results/results.json';
@@ -33,7 +51,17 @@ function displayResults(results) {
             <h2>${entry.title}</h2>
             <p>${entry.smalldescription}</p>
             <p>Author: ${entry.author}</p>
+            <button class="open-button">Open</button>
         `;
         resultsContainer.appendChild(resultElement);
+        
+        const openButton = resultElement.querySelector('.open-button');
+        openButton.addEventListener('click', () => {
+            openPopup(entry.title, entry.description, entry.author);
+        });
     });
 }
+
+closeButton.addEventListener('click', () => {
+    closePopup();
+});
