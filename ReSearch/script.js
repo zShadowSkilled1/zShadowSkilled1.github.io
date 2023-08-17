@@ -48,15 +48,21 @@ function displayResults(results) {
         const resultElement = document.createElement('div');
         resultElement.classList.add('result');
         resultElement.innerHTML = `
-            <h2>${entry.title}</h2>
+            <h2 class="result-title">${entry.title}</h2>
             <p>${entry.smalldescription}</p>
             <p>Author: ${entry.author}</p>
             <button class="open-button">Open</button>
         `;
         resultsContainer.appendChild(resultElement);
-        
+
         const openButton = resultElement.querySelector('.open-button');
+        const titleElement = resultElement.querySelector('.result-title');
+
         openButton.addEventListener('click', () => {
+            openPopup(entry.title, entry.description, entry.author);
+        });
+
+        titleElement.addEventListener('click', () => {
             openPopup(entry.title, entry.description, entry.author);
         });
     });
