@@ -48,10 +48,11 @@ function displayResults(results) {
         const resultElement = document.createElement('div');
         resultElement.classList.add('result');
         resultElement.innerHTML = `
-            <h2 class="result-title">${entry.title}</h2>
-            <p>${entry.smalldescription}</p>
-            <p>Author: ${entry.author}</p>
-            <button class="open-button">Open</button>
+            <div class="result-content">
+                <h2 class="result-title">${entry.title}</h2>
+                <p class="smalldesc">${entry.smalldescription}</p>
+            </div>
+            <p class="author">Author: ${entry.author}</p>
         `;
         resultsContainer.appendChild(resultElement);
 
