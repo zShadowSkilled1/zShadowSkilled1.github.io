@@ -13,6 +13,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+
 .search-container {
     display: flex;
     align-items: center;
@@ -52,7 +53,8 @@ body {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -72,10 +74,16 @@ body {
     cursor: pointer;
 }
 
-.result p {
-    margin: 5px 0;
+.result p.author {
+    color: #888;
     font-size: 14px;
-    color: #666;
+    margin: 0;
+}
+
+.result p.smalldesc {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
 }
 
 .overlay {
@@ -115,5 +123,3 @@ body {
 .close-button:hover {
     color: #333;
 }
-
-/* Add more styles as needed... */
