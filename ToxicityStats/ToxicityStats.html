@@ -189,14 +189,29 @@
     </div>
 
     <script>
-    // Function to display the user's stats in the popup
-    function showPopup(username, count) {
-        document.getElementById("popup-username").textContent = "Username: " + username;
-        document.getElementById("popup-count").textContent = "Number of Insults: " + count;
-        document.getElementById("popup").style.display = "block";
-        var embedUrl = "https://discordlookup.com/user/" + username; // Replace with your profile URL
-        document.getElementById("profile-embed").src = embedUrl;
-    }
+        function showPopup(username, count, userId) {
+            document.getElementById("popup-username").textContent = "Username: " + username;
+            document.getElementById("popup-count").textContent = "Number of Insults: " + count;
+            document.getElementById("popup-userid").textContent = "User ID: " + userId;
+
+            // Set the "View Profile" button click event
+            var viewProfileButton = document.getElementById("view-profile-button");
+            viewProfileButton.href = "javascript:void(0);"; // Disable link behavior
+            viewProfileButton.addEventListener("click", function() {
+                var profileContainer = document.getElementById("profile-container");
+                var profileIframe = document.getElementById("profile-iframe");
+                profileIframe.src = `https://discordlookup.com/user/${userId}`;
+                profileContainer.style.display = "block";
+
+                // Adjust the height of the profile container
+                profileIframe.onload = function() {
+                    var iframeHeight = profileIframe.contentWindow.document.body.scrollHeight;
+                    profileContainer.style.height = iframeHeight + "px";
+                };
+            });
+
+            document.getElementById("popup").style.display = "block";
+        }
 
     // Function to close the popup and remove the embedded content
     function closePopup() {
