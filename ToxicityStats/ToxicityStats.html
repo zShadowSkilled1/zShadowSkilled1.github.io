@@ -1,38 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Toxicity Stats</title>
+    <title>Fetch and Display Web Page Content</title>
 </head>
 <body>
-    <h1>Toxicity Stats</h1>
-    <div id="stats">
-        Loading data...
+    <h1>Web Page Content</h1>
+    <div id="webContent">
+        Loading content...
     </div>
 
     <script>
-        // Function to make an HTTP GET request and update the HTML content
-        function updateStats() {
+        // Function to make an HTTP GET request and display the HTML content
+        function fetchAndDisplayContent() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    var data = JSON.parse(this.responseText);
-                    var stats = "Received Content:<br>";
-                    data.forEach(function (entry) {
-                        var username = entry.username;
-                        var count = entry.count;
-                        stats += username + ", " + count + " insults<br>";
-                    });
-                    document.getElementById("stats").innerHTML = stats;
+                    var htmlContent = this.responseText;
+                    document.getElementById("webContent").innerHTML = htmlContent;
                 } else if (this.readyState == 4) {
-                    document.getElementById("stats").innerHTML = "Failed to fetch data.";
+                    document.getElementById("webContent").innerHTML = "Failed to fetch content.";
                 }
             };
             xhttp.open("GET", "https://toxicitystats.shadowbot1.repl.co", true);
             xhttp.send();
         }
 
-        // Call the function to update stats when the page loads
-        updateStats();
+        // Call the function to fetch and display content when the page loads
+        fetchAndDisplayContent();
     </script>
 </body>
 </html>
