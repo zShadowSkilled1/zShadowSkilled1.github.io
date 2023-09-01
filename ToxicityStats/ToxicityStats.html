@@ -119,6 +119,23 @@
         .popup-username {
             font-weight: bold;
         }
+        
+        .view-profile-button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        /* Add style for user info container */
+        .user-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +167,7 @@
                 <a class="view-profile-button" id="view-profile-button" target="_blank">View Profile</a>
             </div>
             <p id="popup-count"></p>
-            <p class="popup-username" id="popup-userid"></p>
+            <iframe id="profile-iframe" src="" frameborder="0" style="width: 100%; height: 400px;"></iframe>
         </div>
     </div>
 
@@ -159,11 +176,14 @@
         function showPopup(username, count, userId) {
             document.getElementById("popup-username").textContent = "Username: " + username;
             document.getElementById("popup-count").textContent = "Number of Insults: " + count;
-            document.getElementById("popup-userid").textContent = "User ID: " + userId;
             
             // Set the "View Profile" button link
             var viewProfileButton = document.getElementById("view-profile-button");
             viewProfileButton.href = `https://discordlookup.com/user/${userId}`;
+            
+            // Set the iframe source to embed the profile page
+            var profileIframe = document.getElementById("profile-iframe");
+            profileIframe.src = `https://discordlookup.com/user/${userId}`;
             
             document.getElementById("popup").style.display = "block";
         }
