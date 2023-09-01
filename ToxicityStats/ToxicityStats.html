@@ -32,9 +32,10 @@
             margin-bottom: 10px;
             background-color: #f9f9f9;
             cursor: pointer; /* Add cursor pointer for clickable effect */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
         }
-        
-        /* Popup Styles */
+
+        /* Add color styles for the popup */
         .popup-overlay {
             display: none;
             position: fixed;
@@ -65,17 +66,17 @@
 </head>
 <body>
     <header>
-        <h1>Toxicity Stats</h1>
+        <h1 style="background-color: #333; color: #fff; padding: 10px;">Toxicity Stats</h1>
     </header>
     <div id="content"></div>
 
     <!-- Popup HTML -->
     <div class="popup-overlay" id="popup">
         <div class="popup-content">
-            <span class="popup-close" id="close-popup">X</span>
+            <span class="popup-close" id="close-popup" style="cursor: pointer;">X</span>
             <h2>User Stats</h2>
-            <p id="popup-username">Username: </p>
-            <p id="popup-count">Number of Insults: </p>
+            <p id="popup-username"></p>
+            <p id="popup-count"></p>
         </div>
     </div>
 
@@ -130,6 +131,17 @@
 
         // Close the popup when the close button is clicked
         document.getElementById("close-popup").addEventListener("click", closePopup);
+
+        // Highlight user entries on hover
+        var userEntries = document.querySelectorAll('.user-entry');
+        userEntries.forEach(function(entry) {
+            entry.addEventListener('mouseenter', function() {
+                this.style.backgroundColor = '#e1e1e1';
+            });
+            entry.addEventListener('mouseleave', function() {
+                this.style.backgroundColor = '#f9f9f9';
+            });
+        });
     </script>
 </body>
 </html>
