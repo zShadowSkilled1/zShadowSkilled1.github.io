@@ -18,9 +18,24 @@
             .then(function(html) {
                 // Display the entire fetched HTML content inside the 'content' div
                 document.getElementById("content").innerHTML = html;
+
+                // Split usernames and insults count and display separately
+                var entries = html.split('<br>');
+                var result = '';
+                entries.forEach(function(entry) {
+                    if (entry.trim() !== '') {
+                        var parts = entry.split(', ');
+                        if (parts.length === 2) {
+                            var username = parts[0];
+                            var count = parts[1].replace(' insults', '');
+                            result += username + ', ' + count + '<br>';
+                        }
+                    }
+                });
+                document.getElementById("content").innerHTML = result;
             })
             .catch(function(err) {
-                console.log('Failed to fetch content: ', err);
+                console.error('Failed to fetch content: ', err);
             });
     </script>
 </body>
