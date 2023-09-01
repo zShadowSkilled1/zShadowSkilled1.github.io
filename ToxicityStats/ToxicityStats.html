@@ -45,42 +45,36 @@
         // Function to fetch and display content
         function fetchAndDisplayContent() {
             var urlParams = new URLSearchParams(window.location.search);
-            var passwordParam = urlParams.get("password");
             var contentParam = urlParams.get("q");
 
             // Check if the password parameter is correct
             if (contentParam) {
-                if (passwordParam === password) {
-                    // Save the received content to content.txt
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", "save_content.php", true);
-                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            console.log("Received content saved to content.txt.");
-                        }
-                    };
-                    xhr.send("content=" + encodeURIComponent(contentParam));
+                // Save the received content to the PHP page at toxicitystats.shadowbot1.repl.co/index.php
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "https://toxicitystats.shadowbot1.repl.co/index.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log("Received content saved to index.php.");
+                    }
+                };
+                xhr.send("content=" + encodeURIComponent(contentParam));
 
-                    // Display the received content with username and insults count separated
-                    var entries = contentParam.split("\n");
-                    var contentHtml = "<h2>Received Content:</h2>";
-                    entries.forEach(function(entry) {
-                        // Check if the entry is not empty
-                        if (entry.trim() !== "") {
-                            var parts = entry.split(":");
-                            var username = parts[0].trim();
-                            var count = parts[1].trim();
-                            contentHtml += "<div class='entry'><strong>Username:</strong> " + username + ", <strong>Insults Count:</strong> " + count + "</div>";
-                        }
-                    });
+                // Display the received content with username and insults count separated
+                var entries = contentParam.split("\n");
+                var contentHtml = "<h2>Received Content:</h2>";
+                entries.forEach(function(entry) {
+                    // Check if the entry is not empty
+                    if (entry.trim() !== "") {
+                        var parts = entry.split(":");
+                        var username = parts[0].trim();
+                        var count = parts[1].trim();
+                        contentHtml += "<div class='entry'><strong>Username:</strong> " + username + ", <strong>Insults Count:</strong> " + count + "</div>";
+                    }
+                });
 
-                    // Update the content
-                    document.getElementById("displayContent").innerHTML = contentHtml;
-                } else {
-                    // Display an error message for incorrect password
-                    document.getElementById("displayContent").innerHTML = "<p>Incorrect password.</p>";
-                }
+                // Update the content
+                document.getElementById("displayContent").innerHTML = contentHtml;
             }
         }
 
