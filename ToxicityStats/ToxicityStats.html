@@ -35,12 +35,29 @@
                         console.error("Error:", error);
                     });
             } else {
-                // Display an error message for missing parameters
-                document.getElementById("apiResponse").textContent = "Error: Missing parameters.";
+                // If no parameters are provided, display the results from the index.php file
+                var indexPhpUrl = "index.php";
+
+                // Make an HTTP GET request to the index.php file
+                fetch(indexPhpUrl)
+                    .then(function(response) {
+                        if (response.ok) {
+                            return response.text();
+                        } else {
+                            throw new Error("Failed to fetch data from index.php.");
+                        }
+                    })
+                    .then(function(data) {
+                        // Display the results from index.php
+                        document.getElementById("apiResponse").textContent = "Index.php Results:\n" + data;
+                    })
+                    .catch(function(error) {
+                        console.error("Error:", error);
+                    });
             }
         }
 
-        // Call the function to process the query parameters and call the external API
+        // Call the function to process the query parameters and call the external API or index.php
         callExternalApi();
     </script>
 </head>
