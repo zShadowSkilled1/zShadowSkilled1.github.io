@@ -26,8 +26,11 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         
-        #content p {
-            margin: 0;
+        .user-entry {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
         }
     </style>
 </head>
@@ -61,7 +64,7 @@
                         if (parts.length === 2) {
                             var username = parts[0].trim();
                             var count = parts[1].trim();
-                            formattedContent += '<p>' + username + ', ' + count + ' insults</p>';
+                            formattedContent += '<div class="user-entry">' + username + ', ' + count + ' insults</div>';
                         }
                     }
                 });
