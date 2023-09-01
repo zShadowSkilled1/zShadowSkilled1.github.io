@@ -141,18 +141,21 @@
     
     <div id="content"></div>
 
-    <div class="popup-overlay" id="popup">
-        <div class="popup-content">
-            <span class="popup-close" id="close-popup" style="cursor: pointer;">X</span>
-            <h2>User Stats</h2>
-            <div class="user-info">
-                <p class="popup-username" id="popup-username"></p>
-                <a class="view-profile-button" id="view-profile-button" target="_blank">View Profile</a>
-            </div>
-            <p id="popup-count"></p>
-            <p class="popup-username" id="popup-userid"></p>
+<!-- Popup HTML -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <span class="popup-close" id="close-popup" style="cursor: pointer;">X</span>
+        <h2>User Stats</h2>
+        <div class="user-info">
+            <p class="popup-username" id="popup-username"></p>
+            <p class="popup-count" id="popup-count"></p>
+            <a class="view-profile-button" id="view-profile-button" target="_blank">
+                <button style="background-color: #333; color: #fff; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;">View Profile</button>
+            </a>
         </div>
     </div>
+</div>
+
 
     <script>
         function showPopup(username, count, userId) {
