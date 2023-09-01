@@ -7,8 +7,10 @@
     <div id="content"></div>
 
     <script>
-        // Fetch content from the proxy.php script
-        fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php")
+        // Fetch content from the proxy.php script using a GET request
+        fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+            method: "GET" // Specify "GET" request method
+        })
             .then(response => response.text())
             .then(data => {
                 // Display the fetched content inside the 'content' div
