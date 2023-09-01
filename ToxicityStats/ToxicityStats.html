@@ -2,8 +2,39 @@
 <html>
 <head>
     <title>Toxicity Stats</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        #content {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        #content p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Toxicity Stats</h1>
+    </header>
     <div id="content"></div>
 
     <script>
@@ -30,7 +61,7 @@
                         if (parts.length === 2) {
                             var username = parts[0].trim();
                             var count = parts[1].trim();
-                            formattedContent += username + ', ' + count + ' insults<br>';
+                            formattedContent += '<p>' + username + ', ' + count + ' insults</p>';
                         }
                     }
                 });
