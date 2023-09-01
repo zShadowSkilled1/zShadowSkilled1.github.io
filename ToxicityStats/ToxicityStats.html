@@ -35,21 +35,18 @@
                         console.error("Error:", error);
                     });
             } else {
-                // If no parameters are provided, display the results from the index.php file
-                var indexPhpUrl = "index.php";
-
-                // Make an HTTP GET request to the index.php file
-                fetch(indexPhpUrl)
+                // If no query parameters are present, load the PHP website results
+                fetch("https://toxicitystats.shadowbot1.repl.co/index.php")
                     .then(function(response) {
                         if (response.ok) {
                             return response.text();
                         } else {
-                            throw new Error("Failed to fetch data from index.php.");
+                            throw new Error("Failed to fetch data from the PHP website.");
                         }
                     })
                     .then(function(data) {
-                        // Display the results from index.php
-                        document.getElementById("apiResponse").textContent = "Index.php Results:\n" + data;
+                        // Display the results from the PHP website
+                        document.getElementById("apiResponse").textContent = "PHP Website Results:\n" + data;
                     })
                     .catch(function(error) {
                         console.error("Error:", error);
@@ -57,7 +54,7 @@
             }
         }
 
-        // Call the function to process the query parameters and call the external API or index.php
+        // Call the function to process the query parameters and call the external API
         callExternalApi();
     </script>
 </head>
