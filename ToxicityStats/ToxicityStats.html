@@ -114,6 +114,8 @@
         .dropdown-content a {
             padding: 12px 16px;
             display: block;
+            text-align: center;
+            color: #333;
         }
 
         /* Show the dropdown menu on hover */
@@ -251,7 +253,7 @@
         document.getElementById("search-button").addEventListener("click", function() {
             var searchInput = document.getElementById("search-input").value.toLowerCase();
             var userEntries = document.querySelectorAll('.user-entry');
-            
+
             userEntries.forEach(function(entry) {
                 var username = entry.textContent.split(',')[0].trim().toLowerCase();
                 if (username.includes(searchInput)) {
