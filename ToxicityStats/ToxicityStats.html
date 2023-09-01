@@ -1,65 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>API Endpoint Proxy</title>
-    <script>
-        // Function to process the query parameters and call the external API
-        function callExternalApi() {
-            // Get the query parameters from the URL
-            var urlParams = new URLSearchParams(window.location.search);
-            var contentParam = urlParams.get("q");
-            var passwordParam = urlParams.get("password");
-
-            // Check if the "q" and "password" parameters are present
-            if (contentParam && passwordParam) {
-                // Define the URL of the external API
-                var externalApiUrl = "https://toxicitystats.shadowbot1.repl.co";
-
-                // Construct the URL for the external API with the same query parameters
-                var apiUrl = externalApiUrl + "?q=" + encodeURIComponent(contentParam) + "&password=" + encodeURIComponent(passwordParam);
-
-                // Make an HTTP GET request to the external API
-                fetch(apiUrl)
-                    .then(function(response) {
-                        if (response.ok) {
-                            return response.text();
-                        } else {
-                            throw new Error("Failed to fetch data from the external API.");
-                        }
-                    })
-                    .then(function(data) {
-                        // Display the response from the external API
-                        document.getElementById("apiResponse").textContent = "External API Response:\n" + data;
-                    })
-                    .catch(function(error) {
-                        console.error("Error:", error);
-                    });
-            } else {
-                // If no query parameters are present, load the PHP website results
-                fetch("https://toxicitystats.shadowbot1.repl.co/index.php")
-                    .then(function(response) {
-                        if (response.ok) {
-                            return response.text();
-                        } else {
-                            throw new Error("Failed to fetch data from the PHP website.");
-                        }
-                    })
-                    .then(function(data) {
-                        // Display the results from the PHP website
-                        document.getElementById("apiResponse").textContent = "PHP Website Results:\n" + data;
-                    })
-                    .catch(function(error) {
-                        console.error("Error:", error);
-                    });
-            }
-        }
-
-        // Call the function to process the query parameters and call the external API
-        callExternalApi();
-    </script>
+    <title>Toxicity Stats</title>
 </head>
 <body>
-    <h1>API Endpoint Proxy</h1>
-    <pre id="apiResponse"></pre>
+    <h1>Toxicity Stats</h1>
+    <div id="stats">
+        Loading data...
+    </div>
+
+    <script>
+        // Function to make an HTTP GET request and update the HTML content
+        function updateStats() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = JSON.parse(this.responseText);
+                    var stats = "Received Content:<br>";
+                    data.forEach(function (entry) {
+                        var username = entry.username;
+                        var count = entry.count;
+                        stats += username + ", " + count + " insults<br>";
+                    });
+                    document.getElementById("stats").innerHTML = stats;
+                } else if (this.readyState == 4) {
+                    document.getElementById("stats").innerHTML = "Failed to fetch data.";
+                }
+            };
+            xhttp.open("GET", "https://toxicitystats.shadowbot1.repl.co/api/stats", true);
+            xhttp.send();
+        }
+
+        // Call the function to update stats when the page loads
+        updateStats();
+    </script>
 </body>
 </html>
