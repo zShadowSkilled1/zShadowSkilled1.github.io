@@ -62,12 +62,40 @@
             right: 10px;
             cursor: pointer;
         }
+        
+        /* Add search input and button styles */
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #search-input {
+            padding: 5px;
+            width: 60%;
+            font-size: 16px;
+        }
+        
+        #search-button {
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1 style="background-color: #333; color: #fff; padding: 10px;">Toxicity Stats</h1>
     </header>
+    
+    <!-- Add search input and button -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search by username...">
+        <button id="search-button">Search</button>
+    </div>
+    
     <div id="content"></div>
 
     <!-- Popup HTML -->
@@ -132,14 +160,18 @@
         // Close the popup when the close button is clicked
         document.getElementById("close-popup").addEventListener("click", closePopup);
 
-        // Highlight user entries on hover
-        var userEntries = document.querySelectorAll('.user-entry');
-        userEntries.forEach(function(entry) {
-            entry.addEventListener('mouseenter', function() {
-                this.style.backgroundColor = '#e1e1e1';
-            });
-            entry.addEventListener('mouseleave', function() {
-                this.style.backgroundColor = '#f9f9f9';
+        // Search functionality
+        document.getElementById("search-button").addEventListener("click", function() {
+            var searchInput = document.getElementById("search-input").value.toLowerCase();
+            var userEntries = document.querySelectorAll('.user-entry');
+            
+            userEntries.forEach(function(entry) {
+                var username = entry.textContent.split(',')[0].trim().toLowerCase();
+                if (username.includes(searchInput)) {
+                    entry.style.display = "block";
+                } else {
+                    entry.style.display = "none";
+                }
             });
         });
     </script>
