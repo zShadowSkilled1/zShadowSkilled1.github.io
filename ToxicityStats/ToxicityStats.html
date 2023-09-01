@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fetch Website Content</title>
+    <title>Toxicity Stats</title>
 </head>
 <body>
-    <h1>Website Content</h1>
-    <button onclick="fetchWebsiteContent()">Fetch Content</button>
-    <div id="content"></div>
+    <h1>Toxicity Stats</h1>
+    <div id="content">
+        <!-- Content will be displayed here -->
+    </div>
 
     <script>
-        function fetchWebsiteContent() {
-            // Replace the URL with the desired website URL
-            const websiteUrl = "https://toxicitystats.shadowbot1.repl.co";
+        // Function to fetch and display the content
+        async function fetchContent() {
+            try {
+                const response = await fetch("https://toxicitystats.shadowbot1.repl.co");
+                const content = await response.text();
 
-            fetch(websiteUrl)
-                .then(response => response.text())
-                .then(data => {
-                    // Display the content on the webpage
-                    document.getElementById("content").innerHTML = data;
-                })
-                .catch(error => {
-                    console.error("Error fetching website content:", error);
-                });
+                // Display the fetched content in the "content" div
+                document.getElementById("content").innerHTML = content;
+            } catch (error) {
+                console.error("Error fetching content:", error);
+            }
         }
+
+        // Automatically fetch content when the page loads
+        window.onload = fetchContent;
     </script>
 </body>
 </html>
