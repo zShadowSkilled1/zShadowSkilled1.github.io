@@ -120,6 +120,7 @@
             font-weight: bold;
         }
         
+        /* Add style for the "View Profile" button */
         .view-profile-button {
             padding: 5px 10px;
             font-size: 16px;
@@ -135,6 +136,13 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+        }
+
+        /* Add style for the embedded iframe */
+        .profile-iframe {
+            width: 100%;
+            height: 500px; /* Adjust the height as needed */
+            border: none;
         }
     </style>
 </head>
@@ -167,24 +175,31 @@
                 <a class="view-profile-button" id="view-profile-button" target="_blank">View Profile</a>
             </div>
             <p id="popup-count"></p>
-            <iframe id="profile-iframe" src="" frameborder="0" style="width: 100%; height: 400px;"></iframe>
+            <p class="popup-username" id="popup-userid"></p>
         </div>
     </div>
 
+        <!-- Add an iframe element for embedding the profile page -->
+    <div id="profile-iframe-container" style="display: none;">
+        <iframe class="profile-iframe" id="profile-iframe" src=""></iframe>
+    </div>
 
     <script>
-        function showPopup(username, count, userId) {
+                function showPopup(username, count, userId) {
             document.getElementById("popup-username").textContent = "Username: " + username;
             document.getElementById("popup-count").textContent = "Number of Insults: " + count;
-            
-            // Set the "View Profile" button link
+            document.getElementById("popup-userid").textContent = "User ID: " + userId;
+
+            // Set the "View Profile" button link to trigger the iframe
             var viewProfileButton = document.getElementById("view-profile-button");
-            viewProfileButton.href = `https://discordlookup.com/user/${userId}`;
-            
-            // Set the iframe source to embed the profile page
-            var profileIframe = document.getElementById("profile-iframe");
-            profileIframe.src = `https://discordlookup.com/user/${userId}`;
-            
+            viewProfileButton.href = "javascript:void(0);"; // Prevent the link from navigating
+            viewProfileButton.addEventListener("click", function () {
+                // Show the embedded iframe and set its source to the profile page URL
+                var profileIframe = document.getElementById("profile-iframe");
+                profileIframe.src = `https://discordlookup.com/user/${userId}`;
+                document.getElementById("profile-iframe-container").style.display = "block";
+            });
+
             document.getElementById("popup").style.display = "block";
         }
 
