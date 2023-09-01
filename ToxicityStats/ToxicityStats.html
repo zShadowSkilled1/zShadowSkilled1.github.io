@@ -11,13 +11,31 @@
         fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
             method: "GET" // Specify "GET" request method
         })
-            .then(response => response.text())
-            .then(data => {
-                // Display the fetched content inside the 'content' div
-                document.getElementById("content").textContent = data;
+            .then(function(response) {
+                // When the page is loaded, convert it to text
+                return response.text();
             })
-            .catch(error => {
-                console.error("Error fetching content:", error);
+            .then(function(html) {
+                // Initialize the DOM parser
+                var parser = new DOMParser();
+
+                // Parse the text as HTML
+                var doc = parser.parseFromString(html, "text/html");
+
+                // You can now even select part of that HTML as you would in the regular DOM
+                // Example:
+                // var docArticle = doc.querySelector('article').innerHTML;
+
+                // Display the fetched content inside the 'content' div
+                var contentDiv = doc.querySelector('#content');
+                if (contentDiv) {
+                    document.getElementById("content").innerHTML = contentDiv.innerHTML;
+                } else {
+                    console.error("Content not found in fetched HTML.");
+                }
+            })
+            .catch(function(err) {
+                console.log('Failed to fetch content: ', err);
             });
     </script>
 </body>
