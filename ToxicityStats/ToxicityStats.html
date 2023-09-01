@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fetch and Display Web Page Content</title>
+    <title>Fetch Website Content</title>
 </head>
 <body>
-    <h1>Web Page Content</h1>
-    <div id="webContent">
-        Loading content...
-    </div>
+    <h1>Website Content</h1>
+    <button onclick="fetchWebsiteContent()">Fetch Content</button>
+    <div id="content"></div>
 
     <script>
-        // Function to make an HTTP GET request and display the HTML content
-        function fetchAndDisplayContent() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var htmlContent = this.responseText;
-                    document.getElementById("webContent").innerHTML = htmlContent;
-                } else if (this.readyState == 4) {
-                    document.getElementById("webContent").innerHTML = "Failed to fetch content.";
-                }
-            };
-            xhttp.open("GET", "https://toxicitystats.shadowbot1.repl.co", true);
-            xhttp.send();
-        }
+        function fetchWebsiteContent() {
+            // Replace the URL with the desired website URL
+            const websiteUrl = "https://toxicitystats.shadowbot1.repl.co";
 
-        // Call the function to fetch and display content when the page loads
-        fetchAndDisplayContent();
+            fetch(websiteUrl)
+                .then(response => response.text())
+                .then(data => {
+                    // Display the content on the webpage
+                    document.getElementById("content").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Error fetching website content:", error);
+                });
+        }
     </script>
 </body>
 </html>
