@@ -215,22 +215,14 @@
         .features-section {
             text-align: center;
             margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap; /* Allow cards to wrap to the next line */
-            justify-content: center; /* Center the cards horizontally */
-            position: relative; /* Relative position for Features text */
         }
 
-        /* Features text styles */
-        .features-text {
-            position: absolute;
-            top: -40px; /* Adjust the distance from cards */
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            font-size: 18px;
-            border-radius: 10px;
-            font-family: 'Raleway', sans-serif; /* Apply Raleway font */
+        /* Feature cards container */
+        .feature-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Feature card styles */
@@ -292,7 +284,6 @@
     <!-- Rest of your head content -->
     </header>
 
-
     <!-- Page content -->
     <div class="content">
         <!-- Welcome text -->
@@ -322,29 +313,54 @@
 
         <!-- Features section -->
         <div class="features-section">
-            <!-- Features text -->
-            <div class="features-text">Features</div>
-            <!-- Feature cards -->
-            <div class="feature-card">
-                <i class="feature-icon">📈</i>
-                <p>Statistical Analysis</p>
-                <!-- Blue aura for hover effect -->
-                <div class="blue-aura"></div>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon">📊</i>
-                <p>Data Visualization</p>
-                <!-- Blue aura for hover effect -->
-                <div class="blue-aura"></div>
-            </div>
-            <div class="feature-card">
-                <i class="feature-icon">🔍</i>
-                <p>Search Functionality</p>
-                <!-- Blue aura for hover effect -->
-                <div class="blue-aura"></div>
+            <h2 style="color: white; font-family: 'Raleway', sans-serif;">Features</h2>
+            <!-- Feature cards container -->
+            <div class="feature-cards-container">
+                <!-- Feature cards -->
+                <div class="feature-card">
+                    <i class="feature-icon">📈</i>
+                    <p>Statistical Analysis</p>
+                    <!-- Blue aura for hover effect -->
+                    <div class="blue-aura"></div>
+                </div>
+                <div class="feature-card">
+                    <i class="feature-icon">📊</i>
+                    <p>Data Visualization</p>
+                    <!-- Blue aura for hover effect -->
+                    <div class="blue-aura"></div>
+                </div>
+                <div class="feature-card">
+                    <i class="feature-icon">📋</i>
+                    <p>Easy Data Management</p>
+                    <!-- Blue aura for hover effect -->
+                    <div class="blue-aura"></div>
+                </div>
+                <!-- Add more feature cards as needed -->
             </div>
         </div>
     </div>
+
+    <!-- Your other content here -->
+
+    <script>
+        // JavaScript for counting records (you can use your API endpoint)
+        fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+            method: "GET"
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (html) {
+                var lines = html.split('\n');
+                var lineCount = lines.length - 1; // Subtract 1 to exclude an empty line
+                var recordsCountElement = document.getElementById("records-count");
+                recordsCountElement.textContent = lineCount.toLocaleString(); // Format number with commas
+            })
+            .catch(function (err) {
+                console.error('Failed to fetch content: ', err);
+            });
+    </script>
+
     
     <!-- Create a menu container -->
     <div id="nav-bar">
