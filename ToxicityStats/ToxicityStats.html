@@ -160,8 +160,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
             border-radius: 10px; /* Rounded corners */
-            width: 200px; /* Fixed width for square cards */
-            height: 200px; /* Fixed height for square cards */
             transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
             position: relative; /* Relative position for aura */
         }
@@ -217,11 +215,15 @@
         .features-section {
             text-align: center;
             margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Allow cards to wrap to the next line */
+            justify-content: center; /* Center the cards horizontally */
         }
 
         /* Feature card styles */
         .feature-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
             padding: 20px;
             border: 1px solid #ccc;
@@ -229,8 +231,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
             border-radius: 10px; /* Rounded corners */
-            width: 400px; /* Fixed width for rectangular cards */
-            height: 200px; /* Fixed height for rectangular cards */
+            max-width: 300px; /* Maximum width for feature cards */
+            width: auto; /* Auto width based on content */
             transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
             position: relative; /* Relative position for aura */
         }
@@ -243,7 +245,7 @@
         /* Icon styles with transition */
         .feature-icon {
             font-size: 36px;
-            margin-right: 20px; /* Space between icon and text */
+            margin-bottom: 10px; /* Space between icon and text */
             transition: transform 0.2s; /* Icon animation on hover */
             transform-style: preserve-3d; /* Preserve 3D transformations */
         }
