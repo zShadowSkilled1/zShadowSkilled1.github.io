@@ -146,7 +146,7 @@
             border: none;
         }
 
-        /* Centered card styles */
+        /* Centered and square card styles */
         .centered-card {
             display: flex;
             flex-direction: column;
@@ -156,9 +156,10 @@
             border: 1px solid #ccc;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 10px;
+            margin: 20px auto;
             border-radius: 10px; /* Rounded corners */
-            width: calc(50% - 20px); /* 50% width minus margins */
+            width: 200px; /* Fixed square width */
+            height: 200px; /* Fixed square height */
         }
 
         /* Welcome text styles */
@@ -168,11 +169,11 @@
             margin: 20px 0;
         }
 
-        /* Card container for side-by-side cards */
+        /* Card container for stacked cards */
         .card-container {
             display: flex;
-            flex-wrap: wrap; /* Allow cards to wrap to the next line */
-            justify-content: space-between; /* Evenly space cards */
+            flex-direction: column; /* Stack cards vertically */
+            align-items: center; /* Center cards horizontally */
         }
     </style>
     <head>
@@ -196,7 +197,7 @@
             <p>This is a simple tool to track and analyze toxic behavior in user messages.</p>
         </div>
 
-        <!-- Card container for side-by-side cards -->
+        <!-- Card container for stacked cards -->
         <div class="card-container">
             <!-- Records card -->
             <div class="centered-card">
