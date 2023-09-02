@@ -180,17 +180,30 @@
     <!-- Rest of your head content -->
     </header>
 
-            <!-- Page content -->
+    <!-- Page content -->
     <div class="content">
-        <h1>Welcome to Toxicity Stats</h1>
-        <p>This is a simple tool to track and analyze toxic behavior in user messages.</p>
-        <p>How it works:</p>
-        <ul>
-            <li>We fetch data from the API endpoint to check for toxic messages.</li>
-            <li>We display the number of records fetched.</li>
-            <li>Users with the highest number of toxic messages are listed first.</li>
-            <li>Use the search and sorting options to find specific users or patterns.</li>
-        </ul>
+        <!-- Welcome text -->
+        <div class="welcome-text">
+            <h1>Welcome to Toxicity Stats</h1>
+            <p>This is a simple tool to track and analyze toxic behavior in user messages.</p>
+        </div>
+
+        <!-- Records card -->
+        <div class="centered-card">
+            <p><strong>Records</strong></p>
+            <p id="records-count">Loading...</p>
+        </div>
+
+        <!-- How it works card -->
+        <div class="centered-card">
+            <p><strong>How it works</strong></p>
+            <ul>
+                <li>We fetch data from the API endpoint to check for toxic messages.</li>
+                <li>We display the number of records fetched.</li>
+                <li>Users with the highest number of toxic messages are listed first.</li>
+                <li>Use the search and sorting options to find specific users or patterns.</li>
+            </ul>
+        </div>
 
         <!-- Fetch the API endpoint to count the number of lines -->
         <script>
@@ -207,9 +220,7 @@
 
                     // Display the number of records
                     var recordsCount = lines.length;
-                    var recordsCountElement = document.createElement('p');
-                    recordsCountElement.textContent = recordsCount + " Records";
-                    document.querySelector('.content').appendChild(recordsCountElement);
+                    document.getElementById("records-count").textContent = recordsCount + " Records";
                 })
                 .catch(function (err) {
                     console.error('Failed to fetch content: ', err);
