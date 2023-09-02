@@ -189,8 +189,139 @@
             <hr/>
             <!-- Your existing menu buttons here -->
         </div>
-    <script>
 
+       <div id="nav-footer">
+            <label for="nav-footer-toggle"><span></span></label>
+            <div id="nav-footer-content">
+                <!-- Your footer content here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="content"></div>
+
+
+        <div class="popup-overlay" id="popup">
+            <div class="popup-content">
+                <span class="popup-close" id="close-popup" style="cursor: pointer;">X</span>
+                <h2>User Stats</h2>
+                <div class="user-info">
+                    <p class="popup-username" id="popup-username"></p>
+                    <a class="view-profile-button" id="view-profile-button">View Profile</a>
+                </div>
+                <p id="popup-count"></p>
+                <p class="popup-username" id="popup-userid"></p>
+                <div class="profile-container" id="profile-container">
+                    <iframe class="profile-iframe" id="profile-iframe"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <script>
+        function showPopup(username, count, userId) {
+            document.getElementById("popup-username").textContent = "Username: " + username;
+            document.getElementById("popup-count").textContent = "Number of Insults: " + count;
+            document.getElementById("popup-userid").textContent = "User ID: " + userId;
+
+            // Set the "View Profile" button click event
+            var viewProfileButton = document.getElementById("view-profile-button");
+            viewProfileButton.href = "javascript:void(0);"; // Disable link behavior
+            viewProfileButton.addEventListener("click", function() {
+                var profileContainer = document.getElementById("profile-container");
+                var profileIframe = document.getElementById("profile-iframe");
+                profileIframe.src = `https://discordlookup.com/user/${userId}`;
+                profileContainer.style.display = "block";
+
+                // Adjust the height of the profile container
+                profileIframe.onload = function() {
+                    var iframeHeight = profileIframe.contentWindow.document.body.scrollHeight;
+                    profileContainer.style.height = iframeHeight + "px";
+                };
+            });
+
+            document.getElementById("popup").style.display = "block";
+        }
+
+        // Function to close the popup and remove the embedded content
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            // Clear the src attribute to remove the embedded content
+            //document.getElementById("profile-iframe").src = "";
+        }
+
+        function sortHighToLow() {
+            var userEntries = document.querySelectorAll('.user-entry');
+            var sortedEntries = Array.from(userEntries).sort(function(a, b) {
+                var countA = parseInt(a.textContent.split(',')[1]);
+                var countB = parseInt(b.textContent.split(',')[1]);
+                return countB - countA;
+            });
+            var content = document.getElementById("content");
+            content.innerHTML = "";
+            sortedEntries.forEach(function(entry) {
+                content.appendChild(entry);
+            });
+        }
+
+        function sortLowToHigh() {
+            var userEntries = document.querySelectorAll('.user-entry');
+            var sortedEntries = Array.from(userEntries).sort(function(a, b) {
+                var countA = parseInt(a.textContent.split(',')[1]);
+                var countB = parseInt(b.textContent.split(',')[1]);
+                return countA - countB;
+            });
+            var content = document.getElementById("content");
+            content.innerHTML = "";
+            sortedEntries.forEach(function(entry) {
+                content.appendChild(entry);
+            });
+        }
+
+        fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+            method: "GET"
+        })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(html) {
+                document.getElementById("content").innerHTML = html;
+                var lines = html.split('\n');
+                var formattedContent = '';
+                lines.forEach(function(line) {
+                    if (line.trim() !== '') {
+                        var parts = line.split(':');
+                        if (parts.length === 3) {
+                            var username = parts[0].trim();
+                            var count = parts[1].trim();
+                            var userId = parts[2].trim();
+                            var userEntry = '<div class="user-entry" onclick="showPopup(\'' + username + '\', \'' + count + '\', \'' + userId + '\')">' + username + ', ' + count + ' insults</div>';
+                            formattedContent += userEntry;
+                        }
+                    }
+                });
+                document.getElementById("content").innerHTML = formattedContent;
+            })
+            .catch(function(err) {
+                console.error('Failed to fetch content: ', err);
+            });
+
+        document.getElementById("close-popup").addEventListener("click", closePopup);
+        document.getElementById("sort-high-to-low").addEventListener("click", sortHighToLow);
+        document.getElementById("sort-low-to-high").addEventListener("click", sortLowToHigh);
+
+        document.getElementById("search-button").addEventListener("click", function() {
+            var searchInput = document.getElementById("search-input").value.toLowerCase();
+            var userEntries = document.querySelectorAll('.user-entry');
+            userEntries.forEach(function(entry) {
+                var username = entry.textContent.split(',')[0].trim().toLowerCase();
+                if (username.includes(searchInput)) {
+                    entry.style.display = "block";
+                } else {
+                    entry.style.display = "none";
+                }
+            });
+        });
     </script>
 
     <!-- Include Bootstrap JavaScript and Popper.js (required for some Bootstrap components) -->
