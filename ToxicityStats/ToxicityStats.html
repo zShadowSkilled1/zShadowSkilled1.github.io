@@ -218,6 +218,19 @@
             display: flex;
             flex-wrap: wrap; /* Allow cards to wrap to the next line */
             justify-content: center; /* Center the cards horizontally */
+            position: relative; /* Relative position for Features text */
+        }
+
+        /* Features text styles */
+        .features-text {
+            position: absolute;
+            top: -40px; /* Adjust the distance from cards */
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            font-family: 'Raleway', sans-serif; /* Apply Raleway font */
         }
 
         /* Feature card styles */
@@ -309,7 +322,8 @@
 
         <!-- Features section -->
         <div class="features-section">
-            <h2 style="color: white; font-family: 'Raleway', sans-serif;">Features</h2>
+            <!-- Features text -->
+            <div class="features-text">Features</div>
             <!-- Feature cards -->
             <div class="feature-card">
                 <i class="feature-icon">📈</i>
@@ -324,34 +338,13 @@
                 <div class="blue-aura"></div>
             </div>
             <div class="feature-card">
-                <i class="feature-icon">🔄</i>
-                <p>Real-time Updates</p>
+                <i class="feature-icon">🔍</i>
+                <p>Search Functionality</p>
                 <!-- Blue aura for hover effect -->
                 <div class="blue-aura"></div>
             </div>
-            <!-- Add more feature cards with icons and text as needed -->
         </div>
     </div>
-
-    <script>
-        // JavaScript for counting records (you can use your API endpoint)
-        fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
-            method: "GET"
-        })
-            .then(function (response) {
-                return response.text();
-            })
-            .then(function (html) {
-                var lines = html.split('\n');
-                var lineCount = lines.length - 1; // Subtract 1 to exclude an empty line
-                var recordsCountElement = document.getElementById("records-count");
-                recordsCountElement.textContent = lineCount.toLocaleString(); // Format number with commas
-            })
-            .catch(function (err) {
-                console.error('Failed to fetch content: ', err);
-            });
-    </script>
-</body>
     
     <!-- Create a menu container -->
     <div id="nav-bar">
