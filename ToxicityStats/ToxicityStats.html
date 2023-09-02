@@ -148,6 +148,7 @@
             border: none;
         }
 
+        /* Centered card styles with hover effect */
         .centered-card {
             display: flex;
             flex-direction: column;
@@ -210,10 +211,11 @@
             height: 200px; /* Fixed height for square cards */
             transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
             display: inline-block;
+            perspective: 1000px; /* Perspective for 3D effect */
         }
 
         .feature-card:hover {
-            transform: scale(1.05); /* Slightly larger when hovered */
+            transform: scale(1.05) rotateY(10deg); /* Slightly larger and 3D perspective when hovered */
             color: #f00; /* Change icon color on hover */
         }
 
