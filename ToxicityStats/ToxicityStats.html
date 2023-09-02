@@ -158,20 +158,6 @@
 
     <!-- Rest of your head content -->
     </header>
-    
-    <div class="container">
-        <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search by username...">
-            <button id="search-button">Search</button>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropbtn">Sort by</button>
-            <div class="dropdown-content">
-                <a href="#" id="sort-high-to-low">High to Low Insults</a>
-                <a href="#" id="sort-low-to-high">Low to High Insults</a>
-            </div>
-        </div>
 
     <!-- Create a menu container -->
     <div id="nav-bar">
@@ -189,33 +175,42 @@
             <hr/>
             <!-- Your existing menu buttons here -->
         </div>
-        
-                               <div id="nav-footer">
-            <label for="nav-footer-toggle"><span></span></label>
-            <div id="nav-footer-content">
-                <!-- Your footer content here -->
-            </div>
-        </div>
-    </div>
 
-    <div id="content"></div>
+            <!-- Page content -->
+    <div class="content">
+        <h1>Welcome to Toxicity Stats</h1>
+        <p>This is a simple tool to track and analyze toxic behavior in user messages.</p>
+        <p>How it works:</p>
+        <ul>
+            <li>We fetch data from the API endpoint to check for toxic messages.</li>
+            <li>We display the number of records fetched.</li>
+            <li>Users with the highest number of toxic messages are listed first.</li>
+            <li>Use the search and sorting options to find specific users or patterns.</li>
+        </ul>
 
+        <!-- Fetch the API endpoint to count the number of lines -->
+        <script>
+            fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+                method: "GET"
+            })
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (html) {
+                    var lines = html.split('\n').filter(function (line) {
+                        return line.trim() !== '';
+                    });
 
-        <div class="popup-overlay" id="popup">
-            <div class="popup-content">
-                <span class="popup-close" id="close-popup" style="cursor: pointer;">X</span>
-                <h2>User Stats</h2>
-                <div class="user-info">
-                    <p class="popup-username" id="popup-username"></p>
-                    <a class="view-profile-button" id="view-profile-button">View Profile</a>
-                </div>
-                <p id="popup-count"></p>
-                <p class="popup-username" id="popup-userid"></p>
-                <div class="profile-container" id="profile-container">
-                    <iframe class="profile-iframe" id="profile-iframe"></iframe>
-                </div>
-            </div>
-        </div>
+                    // Display the number of records
+                    var recordsCount = lines.length;
+                    var recordsCountElement = document.createElement('p');
+                    recordsCountElement.textContent = recordsCount + " Records";
+                    document.querySelector('.content').appendChild(recordsCountElement);
+                })
+                .catch(function (err) {
+                    console.error('Failed to fetch content: ', err);
+                });
+        </script>
     </div>
         
     <script>
