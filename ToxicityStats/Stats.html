@@ -182,25 +182,6 @@
     </div>
 
     <script>
-
-        // Function to fetch data from the URL
-        function fetchData() {
-            fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
-                method: "GET"
-            })
-                .then(function(response) {
-                    return response.text();
-                })
-                .then(function(html) {
-                    // Process and display the fetched data here
-                })
-                .catch(function(err) {
-                    console.error('Failed to fetch content: ', err);
-                });
-        }
-
-        // Call the fetchData function to load data when the page loads
-        fetchData();
         
         function showPopup(username, count, userId) {
             document.getElementById("popup-username").textContent = "Username: " + username;
@@ -277,6 +258,34 @@
                 }
             });
         });
+
+                fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+            method: "GET"
+        })
+            .then(function(response) {
+                return response.text();
+            })
+            .then(function(html) {
+                document.getElementById("content").innerHTML = html;
+                var lines = html.split('\n');
+                var formattedContent = '';
+                lines.forEach(function(line) {
+                    if (line.trim() !== '') {
+                        var parts = line.split(':');
+                        if (parts.length === 3) {
+                            var username = parts[0].trim();
+                            var count = parts[1].trim();
+                            var userId = parts[2].trim();
+                            var userEntry = '<div class="user-entry" onclick="showPopup(\'' + username + '\', \'' + count + '\', \'' + userId + '\')">' + username + ', ' + count + ' insults</div>';
+                            formattedContent += userEntry;
+                        }
+                    }
+                });
+                document.getElementById("content").innerHTML = formattedContent;
+            })
+            .catch(function(err) {
+                console.error('Failed to fetch content: ', err);
+            });
     </script>
 </body>
 </html>
