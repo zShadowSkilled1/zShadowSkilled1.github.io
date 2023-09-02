@@ -148,7 +148,7 @@
             border: none;
         }
 
-        /* Centered card styles */
+        /* Centered card styles with hover effect */
         .centered-card {
             display: flex;
             flex-direction: column;
@@ -162,6 +162,11 @@
             border-radius: 10px; /* Rounded corners */
             width: 200px; /* Fixed width for square cards */
             height: 200px; /* Fixed height for square cards */
+            transition: transform 0.2s; /* Hover effect */
+        }
+
+        .centered-card:hover {
+            transform: scale(1.05); /* Slightly larger when hovered */
         }
 
         /* Welcome text styles */
@@ -187,7 +192,37 @@
             justify-content: center;
             align-items: center;
         }
-        
+
+        /* Features section styles */
+        .features-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Feature card styles */
+        .feature-card {
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px; /* Rounded corners */
+            width: 200px; /* Fixed width for square cards */
+            height: 200px; /* Fixed height for square cards */
+            transition: transform 0.2s; /* Hover effect */
+            display: inline-block;
+        }
+
+        .feature-card:hover {
+            transform: scale(1.05); /* Slightly larger when hovered */
+        }
+
+        /* Icon styles */
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
         /* Keyframes for the count-up animation */
         @keyframes countUp {
             from {
@@ -233,6 +268,24 @@
             <div class="centered-card">
                 <p><strong>How it works</strong></p>
                 <p>We check for toxic words in user's messages, then we store them in our database.</p>
+            </div>
+        </div>
+
+        <!-- Features section -->
+        <div class="features-section">
+            <h2>Features</h2>
+            <!-- Feature cards -->
+            <div class="feature-card">
+                <i class="feature-icon">📈</i>
+                <p>Statistical Analysis</p>
+            </div>
+            <div class="feature-card">
+                <i class="feature-icon">📊</i>
+                <p>Data Visualization</p>
+            </div>
+            <div class="feature-card">
+                <i class="feature-icon">🔄</i>
+                <p>Real-time Updates</p>
             </div>
         </div>
 
