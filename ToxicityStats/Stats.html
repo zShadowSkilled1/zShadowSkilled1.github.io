@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats</title>
+    <link rel="stylesheet" href="style.css"> <!-- Include your existing CSS file -->
+    <!-- Include any other CSS or external libraries here -->
 
+    <!-- Include your JavaScript functions -->
+    <script>
+        function showPopup(username, count, userId) {
+            document.getElementById("popup-username").textContent = "Username: " + username;
+            document.getElementById("popup-count").textContent = "Number of Insults: " + count;
+            document.getElementById("popup-userid").textContent = "User ID: " + userId;
+
+            // Set the "View Profile" button click event
+            var viewProfileButton = document.getElementById("view-profile-button");
+            viewProfileButton.href = "javascript:void(0);"; // Disable link behavior
+            viewProfileButton.addEventListener("click", function() {
+                var profileContainer = document.getElementById("profile-container");
+                var profileIframe = document.getElementById("profile-iframe");
+                profileIframe.src = `https://discordlookup.com/user/${userId}`;
+                profileContainer.style.display = "block";
+
+                // Adjust the height of the profile container
+                profileIframe.onload = function() {
+                    var iframeHeight = profileIframe.contentWindow.document.body.scrollHeight;
+                    profileContainer.style.height = iframeHeight + "px";
+                };
+            });
+
+            document.getElementById("popup").style.display = "block";
+        }
+
+        // Function to close the popup and remove the embedded content
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            // Clear the src attribute to remove the embedded content
+            //document.getElementById("profile-iframe").src = "";
+        }
+
+        function sortHighToLow() {
+            var userEntries = document.querySelectorAll('.user-entry');
+            var sortedEntries = Array.from(userEntries).sort(function(a, b) {
+                var countA = parseInt(a.textContent.split(',')[1]);
+                var countB = parseInt(b.textContent.split(',')[1]);
+                return countB - countA;
+            });
+            var content = document.getElementById("content");
+            content.innerHTML = "";
+            sortedEntries.forEach(function(entry) {
+                content.appendChild(entry);
+            });
+        }
+
+        function sortLowToHigh() {
+            var userEntries = document.querySelectorAll('.user-entry');
+            var sortedEntries = Array.from(userEntries).sort(function(a, b) {
+                var countA = parseInt(a.textContent.split(',')[1]);
+                var countB = parseInt(b.textContent.split(',')[1]);
+                return countA - countB;
+            });
+            var content = document.getElementById("content");
+            content.innerHTML = "";
+            sortedEntries.forEach(function(entry) {
+                content.appendChild(entry);
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Your page content goes here -->
+
+    <!-- Add the popup HTML structure -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <span class="popup-close" id="close-popup" style="cursor: pointer;">X</span>
+            <h2>User Stats</h2>
+            <div class="user-info">
+                <p class="popup-username" id="popup-username"></p>
+                <a class="view-profile-button" id="view-profile-button">View Profile</a>
+            </div>
+            <p id="popup-count"></p>
+            <p class="popup-username" id="popup-userid"></p>
+            <div class="profile-container" id="profile-container">
+                <iframe class="profile-iframe" id="profile-iframe"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include any additional content for your "Stats" page here -->
+    <div id="content"></div>
+</body>
+</html>
