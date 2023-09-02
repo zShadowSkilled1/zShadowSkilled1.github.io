@@ -145,75 +145,12 @@
             height: 100%;
             border: none;
         }
-
-        /* Style for the profile iframe container */
-        .profile-container {
-            display: none;
-            height: 500px; /* Adjust the initial height as needed */
-        }
-
-        /* Add style for the name in the top right corner */
-        .header-name {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 18px;
-            color: #333;
-        }
-        
-        /* Add style for the menu button */
-        .menu-button {
-            display: none;
-            cursor: pointer;
-        }
-        
-        /* Add style for the menu container */
-        .menu-container {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            position: absolute;
-            top: 50px;
-            right: 10px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Style for menu button links */
-        .menu-button a {
-            text-decoration: none;
-            color: #333;
-            padding: 10px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1 style="background-color: #333; color: #fff; padding: 10px;">Toxicity Stats</h1>
-        <!-- Add the name in the top right corner -->
-        <div class="header-name">zShadowSkilled</div>
-        <!-- Add a menu button -->
-        <div class="menu-button" id="menu-button">&#9776;</div>
-        <!-- Create a menu container -->
-        <div class="menu-container" id="menu-container">
-            <a href="#">Home</a>
-            <a href="#">Stats</a>
-            <a href="#">About</a>
-        </div>
     </header>
-
-    <!-- Sidebar menu -->
-    <div class="sidebar" id="sidebar">
-        <a href="#" class="active">Home</a>
-        <a href="#">Stats</a>
-        <a href="#">About</a>
-    </div>
-    
-    <div id="content">
-        <!-- Content goes here -->
-    </div>
     
     <div class="container">
         <div class="search-container">
@@ -249,17 +186,6 @@
     </div>
 
     <script>
-
-        // Function to toggle the menu container visibility
-        document.getElementById("menu-button").addEventListener("click", function() {
-            var menuContainer = document.getElementById("menu-container");
-            if (menuContainer.style.display === "block") {
-                menuContainer.style.display = "none";
-            } else {
-                menuContainer.style.display = "block";
-            }
-        });
-        
         function showPopup(username, count, userId) {
             document.getElementById("popup-username").textContent = "Username: " + username;
             document.getElementById("popup-count").textContent = "Number of Insults: " + count;
