@@ -163,31 +163,29 @@
             width: 200px; /* Fixed width for square cards */
             height: 200px; /* Fixed height for square cards */
             transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
-            position: relative; /* Relative position for aura and trail */
+            position: relative; /* Relative position for aura */
         }
 
         .centered-card:hover {
-            transform: scale(1.05); /* Slightly larger when hovered */
-            color: #0f0; /* Change text color to green on hover */
+            transform: scale(1.05) rotateY(10deg); /* Slightly larger and 3D perspective when hovered */
         }
 
-        /* Green trail styles */
-        .green-trail {
+        /* Blue aura styles */
+        .blue-aura {
             position: absolute;
-            top: 50%; /* Start from the middle of the card */
-            left: 50%; /* Start from the middle of the card */
-            width: 5px; /* Width of the trail */
-            height: 5px; /* Height of the trail */
-            background-color: #0f0; /* Green color for the trail */
-            border-radius: 50%; /* Circular shape for the trail */
-            opacity: 0; /* Hide the trail by default */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px; /* Match card's border radius */
+            border: 3px solid #00f; /* Blue border for aura */
+            opacity: 0;
             z-index: -1; /* Behind the card */
-            transition: opacity 0.2s, transform 0.2s; /* Transition effect for the trail */
+            transition: opacity 0.2s;
         }
 
-        .centered-card:hover .green-trail {
-            opacity: 1; /* Show the trail on hover */
-            transform: scale(10); /* Expand the trail on hover */
+        .centered-card:hover .blue-aura {
+            opacity: 1; /* Show the aura on hover */
         }
 
         /* Welcome text styles */
@@ -246,6 +244,7 @@
             font-size: 36px;
             margin-bottom: 10px;
             transition: transform 0.2s; /* Icon animation on hover */
+            transform-style: preserve-3d; /* Preserve 3D transformations */
         }
 
         .feature-card:hover .feature-icon {
@@ -292,16 +291,16 @@
             <div class="centered-card">
                 <p><strong>Records</strong></p>
                 <p class="big-text" id="records-count">Loading...</p>
-                <!-- Green trail for hover effect -->
-                <div class="green-trail"></div>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
 
             <!-- How it works card -->
             <div class="centered-card">
                 <p><strong>How it works</strong></p>
                 <p>We check for toxic words in user's messages, then we store them in our database.</p>
-                <!-- Green trail for hover effect -->
-                <div class="green-trail"></div>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
         </div>
 
@@ -312,22 +311,42 @@
             <div class="feature-card">
                 <i class="feature-icon">📈</i>
                 <p>Statistical Analysis</p>
-                <!-- Green trail for hover effect -->
-                <div class="green-trail"></div>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
             <div class="feature-card">
                 <i class="feature-icon">📊</i>
                 <p>Data Visualization</p>
-                <!-- Green trail for hover effect -->
-                <div class="green-trail"></div>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
             <div class="feature-card">
                 <i class="feature-icon">🔄</i>
                 <p>Real-time Updates</p>
-                <!-- Green trail for hover effect -->
-                <div class="green-trail"></div>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
         </div>
+
+        <!-- Fetch the API endpoint to count the number of lines and update the records count -->
+        <script>
+            fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+                method: "GET"
+            })
+                .then(function (response) {
+                    return response.text();
+                })
+                .then(function (html) {
+                    var lines = html.split('\n');
+                    var lineCount = lines.length - 1; // Subtract 1 to exclude an empty line
+                    var recordsCountElement = document.getElementById("records-count");
+                    recordsCountElement.textContent = lineCount.toLocaleString(); // Format number with commas
+                })
+                .catch(function (err) {
+                    console.error('Failed to fetch content: ', err);
+                });
+        </script>
+    </div>
     
     <!-- Create a menu container -->
     <div id="nav-bar">
