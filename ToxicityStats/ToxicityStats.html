@@ -168,6 +168,7 @@
 
         .centered-card:hover {
             transform: scale(1.05) rotateY(10deg); /* Slightly larger and 3D perspective when hovered */
+            color: #f00; /* Change text color on hover */
         }
 
         /* Blue aura styles */
@@ -220,29 +221,29 @@
 
         /* Feature card styles */
         .feature-card {
+            display: flex;
+            align-items: center;
             padding: 20px;
             border: 1px solid #ccc;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin: 20px;
             border-radius: 10px; /* Rounded corners */
-            width: 200px; /* Fixed width for square cards */
-            height: 200px; /* Fixed height for square cards */
+            width: 400px; /* Fixed width for rectangular cards */
+            height: 200px; /* Fixed height for rectangular cards */
             transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
-            display: inline-block;
-            perspective: 1000px; /* Perspective for 3D effect */
             position: relative; /* Relative position for aura */
         }
 
         .feature-card:hover {
             transform: scale(1.05) rotateY(10deg); /* Slightly larger and 3D perspective when hovered */
-            color: #f00; /* Change icon color on hover */
+            color: #f00; /* Change text color on hover */
         }
 
         /* Icon styles with transition */
         .feature-icon {
             font-size: 36px;
-            margin-bottom: 10px;
+            margin-right: 20px; /* Space between icon and text */
             transition: transform 0.2s; /* Icon animation on hover */
             transform-style: preserve-3d; /* Preserve 3D transformations */
         }
@@ -306,7 +307,7 @@
 
         <!-- Features section -->
         <div class="features-section">
-            <h2>Features</h2>
+            <h2 style="color: white; font-family: 'Raleway', sans-serif;">Features</h2>
             <!-- Feature cards -->
             <div class="feature-card">
                 <i class="feature-icon">📈</i>
@@ -326,27 +327,29 @@
                 <!-- Blue aura for hover effect -->
                 <div class="blue-aura"></div>
             </div>
+            <!-- Add more feature cards with icons and text as needed -->
         </div>
-
-        <!-- Fetch the API endpoint to count the number of lines and update the records count -->
-        <script>
-            fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
-                method: "GET"
-            })
-                .then(function (response) {
-                    return response.text();
-                })
-                .then(function (html) {
-                    var lines = html.split('\n');
-                    var lineCount = lines.length - 1; // Subtract 1 to exclude an empty line
-                    var recordsCountElement = document.getElementById("records-count");
-                    recordsCountElement.textContent = lineCount.toLocaleString(); // Format number with commas
-                })
-                .catch(function (err) {
-                    console.error('Failed to fetch content: ', err);
-                });
-        </script>
     </div>
+
+    <script>
+        // JavaScript for counting records (you can use your API endpoint)
+        fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
+            method: "GET"
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (html) {
+                var lines = html.split('\n');
+                var lineCount = lines.length - 1; // Subtract 1 to exclude an empty line
+                var recordsCountElement = document.getElementById("records-count");
+                recordsCountElement.textContent = lineCount.toLocaleString(); // Format number with commas
+            })
+            .catch(function (err) {
+                console.error('Failed to fetch content: ', err);
+            });
+    </script>
+</body>
     
     <!-- Create a menu container -->
     <div id="nav-bar">
