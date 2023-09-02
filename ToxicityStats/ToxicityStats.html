@@ -151,12 +151,59 @@
             display: none;
             height: 500px; /* Adjust the initial height as needed */
         }
+
+                /* Style for the sidebar menu */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #333;
+            transition: left 0.3s ease-in-out;
+        }
+
+        /* Style for the sidebar menu items */
+        .sidebar a {
+            padding: 20px;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Highlight the currently selected menu item */
+        .sidebar a.active {
+            background-color: #555;
+        }
+
+        /* Show the sidebar menu when the button is clicked */
+        #menu-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1 style="background-color: #333; color: #fff; padding: 10px;">Toxicity Stats</h1>
+        <h1 class="name">ToxicityStats</h1>
+        <div id="menu-toggle">&#9776;</div>
     </header>
+
+    <!-- Sidebar menu -->
+    <div class="sidebar" id="sidebar">
+        <a href="#" class="active">Home</a>
+        <a href="#">Stats</a>
+        <a href="#">About</a>
+    </div>
+    
+    <div id="content">
+        <!-- Content goes here -->
+    </div>
     
     <div class="container">
         <div class="search-container">
@@ -192,6 +239,19 @@
     </div>
 
     <script>
+
+            // Function to open and close the sidebar menu
+    var sidebar = document.getElementById("sidebar");
+    var menuToggle = document.getElementById("menu-toggle");
+
+    menuToggle.addEventListener("click", function() {
+        if (sidebar.style.left === "0px") {
+            sidebar.style.left = "-250px";
+        } else {
+            sidebar.style.left = "0px";
+        }
+    });
+        
         function showPopup(username, count, userId) {
             document.getElementById("popup-username").textContent = "Username: " + username;
             document.getElementById("popup-count").textContent = "Number of Insults: " + count;
