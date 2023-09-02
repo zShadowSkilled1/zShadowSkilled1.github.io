@@ -162,11 +162,30 @@
             border-radius: 10px; /* Rounded corners */
             width: 200px; /* Fixed width for square cards */
             height: 200px; /* Fixed height for square cards */
-            transition: transform 0.2s; /* Hover effect */
+            transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
+            position: relative; /* Relative position for aura */
         }
 
         .centered-card:hover {
             transform: scale(1.05); /* Slightly larger when hovered */
+        }
+
+        /* Blue aura styles */
+        .blue-aura {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px; /* Match card's border radius */
+            border: 3px solid #00f; /* Blue border for aura */
+            opacity: 0;
+            z-index: -1; /* Behind the card */
+            transition: opacity 0.2s;
+        }
+
+        .centered-card:hover .blue-aura {
+            opacity: 1; /* Show the aura on hover */
         }
 
         /* Welcome text styles */
@@ -212,6 +231,7 @@
             transition: transform 0.2s, color 0.2s; /* Hover effect for size and color */
             display: inline-block;
             perspective: 1000px; /* Perspective for 3D effect */
+            position: relative; /* Relative position for aura */
         }
 
         .feature-card:hover {
@@ -255,6 +275,7 @@
     <!-- Rest of your head content -->
     </header>
 
+
     <!-- Page content -->
     <div class="content">
         <!-- Welcome text -->
@@ -269,12 +290,16 @@
             <div class="centered-card">
                 <p><strong>Records</strong></p>
                 <p class="big-text" id="records-count">Loading...</p>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
 
             <!-- How it works card -->
             <div class="centered-card">
                 <p><strong>How it works</strong></p>
                 <p>We check for toxic words in user's messages, then we store them in our database.</p>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
         </div>
 
@@ -285,14 +310,20 @@
             <div class="feature-card">
                 <i class="feature-icon">📈</i>
                 <p>Statistical Analysis</p>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
             <div class="feature-card">
                 <i class="feature-icon">📊</i>
                 <p>Data Visualization</p>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
             <div class="feature-card">
                 <i class="feature-icon">🔄</i>
                 <p>Real-time Updates</p>
+                <!-- Blue aura for hover effect -->
+                <div class="blue-aura"></div>
             </div>
         </div>
 
@@ -305,41 +336,16 @@
                     return response.text();
                 })
                 .then(function (html) {
-                    var lines = html.split('\n').filter(function (line) {
-                        return line.trim() !== '';
-                    });
-
-                    // Display the number of records with animation
-                    var recordsCount = lines.length;
-                    animateCount("records-count", recordsCount);
+                    var lines = html.split('\n');
+                    var lineCount = lines.length - 1; // Subtract 1 to exclude an empty line
+                    var recordsCountElement = document.getElementById("records-count");
+                    recordsCountElement.textContent = lineCount.toLocaleString(); // Format number with commas
                 })
                 .catch(function (err) {
                     console.error('Failed to fetch content: ', err);
                 });
-
-            // Function to animate the count-up effect
-            function animateCount(elementId, finalValue) {
-                var element = document.getElementById(elementId);
-                var duration = 5000; // Limit animation to 5 seconds (5000 milliseconds)
-                var frameDuration = 1000 / 60; // 60 frames per second
-
-                var stepCount = Math.ceil(duration / frameDuration);
-                var stepValue = finalValue / stepCount;
-                var currentStep = 0;
-
-                var animationInterval = setInterval(function () {
-                    currentStep++;
-                    var currentValue = stepValue * currentStep;
-                    element.textContent = Math.ceil(currentValue);
-
-                    if (currentStep >= stepCount) {
-                        clearInterval(animationInterval);
-                    }
-                }, frameDuration);
-            }
         </script>
     </div>
-
     
     <!-- Create a menu container -->
     <div id="nav-bar">
