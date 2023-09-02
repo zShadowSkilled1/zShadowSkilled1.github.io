@@ -169,11 +169,31 @@
             margin: 20px 0;
         }
 
+        /* Big text animation for records count */
+        .big-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            animation: countUp 2s ease-in-out;
+        }
+
         /* Card container for centered horizontal layout */
         .card-container {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        
+        /* Keyframes for the count-up animation */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
     <head>
@@ -199,22 +219,20 @@
 
         <!-- Card container for centered horizontal layout -->
         <div class="card-container">
-            <!-- Records card -->
+            <!-- Records card with animation -->
             <div class="centered-card">
                 <p><strong>Records</strong></p>
-                <p id="records-count">Loading...</p>
+                <p class="big-text" id="records-count">Loading...</p>
             </div>
 
             <!-- How it works card -->
             <div class="centered-card">
                 <p><strong>How it works</strong></p>
-                <ul>
-                    <p id="records-count">We check for toxic words in user's message, then we store them to our database.</p>
-                </ul>
+                <p>We check for toxic words in user's messages, then we store them in our database.</p>
             </div>
         </div>
 
-        <!-- Fetch the API endpoint to count the number of lines -->
+        <!-- Fetch the API endpoint to count the number of lines and update the records count -->
         <script>
             fetch("https://toxicitystats.shadowbot1.repl.co/proxy.php", {
                 method: "GET"
@@ -227,15 +245,37 @@
                         return line.trim() !== '';
                     });
 
-                    // Display the number of records
+                    // Display the number of records with animation
                     var recordsCount = lines.length;
-                    document.getElementById("records-count").textContent = recordsCount + " Records";
+                    animateCount("records-count", recordsCount);
                 })
                 .catch(function (err) {
                     console.error('Failed to fetch content: ', err);
                 });
+
+            // Function to animate the count-up effect
+            function animateCount(elementId, finalValue) {
+                var element = document.getElementById(elementId);
+                var duration = 2000; // Animation duration in milliseconds
+                var frameDuration = 1000 / 60; // 60 frames per second
+
+                var stepCount = Math.ceil(duration / frameDuration);
+                var stepValue = finalValue / stepCount;
+                var currentStep = 0;
+
+                var animationInterval = setInterval(function () {
+                    currentStep++;
+                    var currentValue = stepValue * currentStep;
+                    element.textContent = Math.ceil(currentValue);
+
+                    if (currentStep >= stepCount) {
+                        clearInterval(animationInterval);
+                    }
+                }, frameDuration);
+            }
         </script>
     </div>
+
     
     <!-- Create a menu container -->
     <div id="nav-bar">
