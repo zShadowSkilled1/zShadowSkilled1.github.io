@@ -13,15 +13,15 @@
 <body>
 
     <div class="wrapper">
-        <form action="">
+        <form>
             <h1>Login</h1>
             <div class="input-box">
-                <input type="text" placeholder="Username" required>
+                <input type="text" placeholder="Username" id="username" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="input-box">
-                <input type="password" placeholder="password" required>
-                <i class='bx bxs-lock-alt' ></i>
+                <input type="password" placeholder="password" id="password" required>
+                <i class='bx bxs-lock-alt'></i>
             </div>
 
             <div class="remember-forgot">
@@ -29,13 +29,15 @@
                 <a href="#">Forgot password?</a>
             </div>
 
-            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn" onclick="login()">Login</button>
 
             <div class="register-link">
                 <p>Don't have an account? <a href="#">Register</a></p>
             </div>
         </form>
     </div>
+
+    <script src="script.js"></script>
 
 </body>
 
