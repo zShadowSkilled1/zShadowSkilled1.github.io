@@ -11,6 +11,7 @@ function login() {
                 var [accountName, accountPassword] = accounts[i].split(':');
                 if (accountName === username && accountPassword === password) {
                     alert("Login successful!");
+                    window.location.href = "Main/Dashboard.html"; // Redirect after successful login
                     return;
                 }
             }
