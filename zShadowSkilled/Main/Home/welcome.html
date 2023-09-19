@@ -16,7 +16,25 @@
         <!-- Your content for the welcome page goes here -->
     </div>
     
-    <script src="welcome.js"></script> <!-- Link to your JavaScript file for welcome page -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var isAuthenticated = checkAuthentication(); // Check if the user is authenticated
+
+            if (!isAuthenticated) {
+                window.location.href = "../../index.html"; // Redirect to login page if not authenticated
+            }
+        });
+
+        function checkAuthentication() {
+            // You can implement your own logic to check if the user is authenticated.
+            // For example, you might use cookies, sessions, or tokens to track authentication.
+
+            // For this example, let's assume a simple flag.
+            var isAuthenticated = false; // Change this based on your actual authentication logic.
+
+            return isAuthenticated;
+        }
+    </script>
 </body>
 
 </html>
