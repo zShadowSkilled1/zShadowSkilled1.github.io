@@ -1,0 +1,32 @@
+/* topbar.css */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.topbar button {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.topbar button:focus {
+    outline: none;
+}
+
+.topbar button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+}
