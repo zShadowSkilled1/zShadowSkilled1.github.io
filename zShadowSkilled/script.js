@@ -3,6 +3,7 @@ function login() {
     var password = document.getElementById("password").value;
 
     var url = "https://socialpost.shadowbot1.repl.co/?q=get&password=YOUR_PASSWORD"; // Replace with your actual password
+
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -11,6 +12,7 @@ function login() {
                 var [accountName, accountPassword] = accounts[i].split(':');
                 if (accountName === username && accountPassword === password) {
                     alert("Login successful!");
+                    setLoginCookies(username, password); // Save login information to cookies
                     window.location.href = "Main/Home/welcome.html"; // Redirect after successful login
                     return;
                 }
@@ -18,6 +20,11 @@ function login() {
             alert("Invalid username or password.");
         })
         .catch(error => console.error("Error:", error));
+}
+
+function setLoginCookies(username, password) {
+    document.cookie = `username=${username}`;
+    document.cookie = `password=${password}`;
 }
 
 function register() {
