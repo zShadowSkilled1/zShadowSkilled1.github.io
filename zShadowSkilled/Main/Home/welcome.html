@@ -40,7 +40,7 @@
             cookies.forEach(cookie => {
                 var parts = cookie.split('=');
                 var key = parts[0].trim();
-                var value = parts[1].trim();
+                var value = parts[1] ? parts[1].trim() : ''; // Check if value exists
                 loginInfo[key] = value;
             });
 
