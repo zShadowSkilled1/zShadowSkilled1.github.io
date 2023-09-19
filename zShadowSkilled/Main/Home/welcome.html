@@ -21,18 +21,30 @@
             var isAuthenticated = checkAuthentication(); // Check if the user is authenticated
 
             if (!isAuthenticated) {
-                window.location.href = "../../index.html"; // Redirect to login page if not authenticated
+                window.location.href = "../../index.html"; // Adjust the path to index.html
             }
         });
 
         function checkAuthentication() {
-            // You can implement your own logic to check if the user is authenticated.
-            // For example, you might use cookies, sessions, or tokens to track authentication.
+            // Retrieve the saved login information from cookies
+            var loginInfo = getLoginCookies();
+            
+            // Check if both username and password are available in cookies
+            return (loginInfo.username && loginInfo.password);
+        }
 
-            // For this example, let's assume a simple flag.
-            var isAuthenticated = false; // Change this based on your actual authentication logic.
+        function getLoginCookies() {
+            var cookies = document.cookie.split(';');
+            var loginInfo = {};
 
-            return isAuthenticated;
+            cookies.forEach(cookie => {
+                var parts = cookie.split('=');
+                var key = parts[0].trim();
+                var value = parts[1].trim();
+                loginInfo[key] = value;
+            });
+
+            return loginInfo;
         }
     </script>
 </body>
