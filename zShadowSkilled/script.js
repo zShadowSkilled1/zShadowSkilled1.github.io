@@ -34,7 +34,13 @@ function register() {
     // Validate username
     var usernameRegex = /^[^:;,\/!§@ç$£]{1,15}$/; // Regular expression for validation
     if (!usernameRegex.test(username)) {
-        alert("Invalid username. Your username musn't be more than 15 character long and must not contain these characters ( : , ; ! § £ $ ).");
+        alert("Invalid username. Your username mustn't be more than 15 characters long and must not contain these characters ( : , ; ! § £ $ ).");
+        return;
+    }
+
+    // Validate password length
+    if (password.length < 4) {
+        alert("Invalid password. Password must be at least 4 characters long.");
         return;
     }
 
