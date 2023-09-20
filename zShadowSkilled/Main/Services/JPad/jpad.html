@@ -16,7 +16,7 @@
     <!-- Account display moved outside the wrapper -->
     <div class="account-info">
         <span id="account-name"></span>
-        <span class="logout" onclick="logout()">Logout</span>
+        <a class="logout" href="https://zshadowskilled.vercel.app/zShadowSkilled/" target="_blank">Logout</a>
     </div>
 
     <div class="wrapper">
@@ -50,20 +50,6 @@
             });
 
             return accountName;
-        }
-
-        function logout() {
-            // Get all cookies related to the current website
-            var cookies = document.cookie.split(";");
-
-            // Loop through each cookie and expire it
-            cookies.forEach(cookie => {
-                var parts = cookie.split("=");
-                var cookieName = parts[0].trim();
-                document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            });
-
-            window.location.href = "../../index.html"; // Redirect to login page after logout
         }
 
         function saveNote() {
