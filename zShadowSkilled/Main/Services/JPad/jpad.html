@@ -6,18 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JPad - Online Notepad</title>
-    <link rel="stylesheet" href="jpad.css"> <!-- Link to your jpad.css file -->
-    <link rel="stylesheet" href="welcome.css"> <!-- Link to your welcome.css file -->
-    <link rel="stylesheet" href="account-display.css"> <!-- Link to your account-display.css file -->
+    <link rel="stylesheet" href="jpad.css">
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap' rel='stylesheet'>
+    <script src="jpad.js" defer></script>
+    <script src="account-display.js" defer></script>
 </head>
 
 <body>
-    <!-- Blur background for account display -->
     <div class="account-background"></div>
-
-    <!-- Account display at top right corner -->
     <div class="account-info">
-        <span id="account-name">John Doe</span>
+        <span id="account-name"></span>
         <span class="logout" onclick="logout()">Logout</span>
     </div>
 
@@ -26,9 +24,9 @@
         <button class="button" onclick="saveNote()">Save Note</button>
     </div>
 
-    <script src="jpad.js"></script> <!-- Link to your jpad.js file -->
-    <script src="welcome.js"></script> <!-- Link to your welcome.js file -->
-    <script src="account-display.js"></script> <!-- Link to your account-display.js file -->
+    <script>
+        displayAccountName(); // Call the function to display the account name
+    </script>
 </body>
 
 </html>
