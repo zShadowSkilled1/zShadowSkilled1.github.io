@@ -43,6 +43,7 @@ body {
     display: flex;
     align-items: center;
     font-size: 18px;
+    position: relative;
 }
 
 .account-info span {
@@ -50,6 +51,16 @@ body {
     cursor: pointer;
 }
 
-.account-info span.logout {
-    color: #ff4136; /* Red color for logout option */
+.account-info .logout {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.account-info:hover .logout {
+    display: block;
 }
