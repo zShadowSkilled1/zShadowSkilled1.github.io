@@ -11,6 +11,15 @@
 </head>
 
 <body>
+    <!-- Blur background for account display -->
+    <div class="account-background"></div>
+
+    <!-- Account display moved outside the wrapper -->
+    <div class="account-info">
+        <span id="account-name">John Doe</span>
+        <span class="logout" onclick="logout()">Logout</span>
+    </div>
+
     <div class="wrapper">
         <div class="header">
             <h1>Welcome</h1>
@@ -56,12 +65,6 @@
             window.location.href = "../../index.html"; // Redirect to login page after logout
         }
     </script>
-
-    <!-- Account display moved outside the wrapper -->
-    <div class="account-info">
-        <span id="account-name">John Doe</span>
-        <span class="logout" onclick="logout()">Logout</span>
-    </div>
 </body>
 
 </html>
