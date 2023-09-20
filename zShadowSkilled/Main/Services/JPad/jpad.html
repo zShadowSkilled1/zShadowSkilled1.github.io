@@ -22,6 +22,8 @@
     <div class="container">
         <textarea id="note-content" placeholder="Start typing your note here..."></textarea>
         <button class="button" onclick="saveNote()">Save Note</button>
+        <input type="file" accept=".txt" id="file-input" style="display: none;">
+        <button class="button" onclick="importNote()">Import</button>
     </div>
 
     <script>
@@ -64,6 +66,23 @@
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
+        }
+
+        function importNote() {
+            var fileInput = document.getElementById("file-input");
+            fileInput.click();
+
+            fileInput.addEventListener("change", function() {
+                var file = fileInput.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function() {
+                    var content = reader.result;
+                    document.getElementById("note-content").value = content;
+                }
+
+                reader.readAsText(file);
+            });
         }
     </script>
 </body>
