@@ -36,18 +36,29 @@ function logout() {
     window.location.href = "../../index.html"; // Redirect to login page after logout
 }
 
-// Function to save the note
 function saveNote() {
-    var noteContent = document.getElementById("notepad").value;
+    var noteContent = document.getElementById("note-content").value;
+    
+    // Check if the note is empty
+    if (!noteContent.trim()) {
+        alert("Note is empty. Please add some content before saving.");
+        return;
+    }
 
-    // You can implement the logic to save the note here
-    // For example, you can send the note content to your server using fetch() or save it to a database
-    // Make sure to handle the server-side part to actually save the note
+    var blob = new Blob([noteContent], { type: "text/plain" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
 
-    alert("Note saved successfully!");
+    // Set a default file name (you can change this)
+    var fileName = "note.txt";
+    a.download = fileName;
+
+    // Append the anchor element to the body
+    document.body.appendChild(a);
+
+    // Programmatically trigger a click event on the anchor element
+    a.click();
+
+    // Remove the anchor element from the body
+    document.body.removeChild(a);
 }
-
-// Display the account name on page load
-document.addEventListener("DOMContentLoaded", function() {
-    displayAccountName();
-});
