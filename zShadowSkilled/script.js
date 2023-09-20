@@ -31,6 +31,13 @@ function register() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("password").value;
 
+    // Validate username
+    var usernameRegex = /^[^:;,\/!§@ç$£]{1,15}$/; // Regular expression for validation
+    if (!usernameRegex.test(username)) {
+        alert("Invalid username. Please make sure it meets the criteria.");
+        return;
+    }
+
     var url = "https://socialpost.shadowbot1.repl.co/?q=get&password=YOUR_PASSWORD"; // Replace with your actual password
 
     fetch(url)
@@ -66,4 +73,3 @@ function register() {
         })
         .catch(error => console.error("Error:", error));
 }
-
