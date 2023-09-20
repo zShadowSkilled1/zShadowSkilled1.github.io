@@ -5,30 +5,94 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JPad - Online Notepad</title>
-    <link rel="stylesheet" href="jpad.css"> <!-- Link to your jpad.css file -->
-    <link rel="stylesheet" href="welcome.css"> <!-- Link to your welcome.css file -->
-    <link rel="stylesheet" href="account-display.css"> <!-- Link to your account-display.css file -->
+    <title>JPad</title>
+    <link rel="stylesheet" href="jpad.css"> <!-- Link to your CSS file for JPad -->
 </head>
 
 <body>
     <!-- Blur background for account display -->
     <div class="account-background"></div>
 
-    <!-- Account display at top right corner -->
+    <!-- Account display moved outside the wrapper -->
     <div class="account-info">
-        <span id="account-name">John Doe</span>
+        <span id="account-name"></span>
         <span class="logout" onclick="logout()">Logout</span>
     </div>
 
-    <div class="container">
-        <textarea id="note-content" placeholder="Start typing your note..."></textarea>
-        <button class="button" onclick="saveNote()">Save Note</button>
+    <div class="wrapper">
+        <div class="header">
+            <h1>JPad</h1>
+        </div>
+        <div class="container">
+            <textarea id="note-content" placeholder="Start typing your note..."></textarea>
+            <button class="button" onclick="saveNote()">Save Note</button>
+        </div>
     </div>
 
-    <script src="jpad.js"></script> <!-- Link to your jpad.js file -->
-    <script src="welcome.js"></script> <!-- Link to your welcome.js file -->
-    <script src="account-display.js"></script> <!-- Link to your account-display.js file -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve and display the account name
+            var accountName = getAccountName();
+            document.getElementById('account-name').textContent = accountName;
+        });
+
+        function getAccountName() {
+            var cookies = document.cookie.split(';');
+            var accountName = '';
+
+            cookies.forEach(cookie => {
+                var parts = cookie.split('=');
+                var key = parts[0].trim();
+                var value = parts[1] ? parts[1].trim() : '';
+                if (key === 'username') {
+                    accountName = value;
+                }
+            });
+
+            return accountName;
+        }
+
+        function logout() {
+            // Get all cookies related to the current website
+            var cookies = document.cookie.split(";");
+
+            // Loop through each cookie and expire it
+            cookies.forEach(cookie => {
+                var parts = cookie.split("=");
+                var cookieName = parts[0].trim();
+                document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            });
+
+            window.location.href = "../../index.html"; // Redirect to login page after logout
+        }
+
+        function saveNote() {
+            var noteContent = document.getElementById("note-content").value;
+            
+            // Check if the note is empty
+            if (!noteContent.trim()) {
+                alert("Note is empty. Please add some content before saving.");
+                return;
+            }
+
+            var blob = new Blob([noteContent], { type: "text/plain" });
+            var a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+
+            // Set a default file name (you can change this)
+            var fileName = "note.txt";
+            a.download = fileName;
+
+            // Append the anchor element to the body
+            document.body.appendChild(a);
+
+            // Programmatically trigger a click event on the anchor element
+            a.click();
+
+            // Remove the anchor element from the body
+            document.body.removeChild(a);
+        }
+    </script>
 </body>
 
 </html>
