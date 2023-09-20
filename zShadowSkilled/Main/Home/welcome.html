@@ -14,10 +14,6 @@
     <div class="wrapper">
         <div class="header">
             <h1>Welcome</h1>
-            <div class="account-info">
-                <span id="account-name">John Doe</span>
-                <span class="logout" onclick="logout()">Logout</span>
-            </div>
         </div>
         <!-- Your content for the welcome page goes here -->
     </div>
@@ -60,6 +56,12 @@
             window.location.href = "../../index.html"; // Redirect to login page after logout
         }
     </script>
+
+    <!-- Account display moved outside the wrapper -->
+    <div class="account-info">
+        <span id="account-name">John Doe</span>
+        <span class="logout" onclick="logout()">Logout</span>
+    </div>
 </body>
 
 </html>
