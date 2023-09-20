@@ -1,46 +1,81 @@
 /* jpad.css */
 
-/* Blur background for account display */
+/* Styles for the online notepad (JPad) */
+body {
+    background: url(img.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    font-size: 36px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+}
+
+button:hover {
+    background-color: #f3f3f3;
+}
+
+/* Account display styles (similar to welcome.css) */
 .account-background {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8); /* Adjust the background color and opacity */
-    backdrop-filter: blur(10px);
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(20px);
     z-index: 1;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Account display */
 .account-info {
     position: fixed;
-    top: 20px; /* Adjust the top position as needed */
-    right: 20px; /* Adjust the right position as needed */
+    top: 10px;
+    right: 10px;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.8); /* Adjust the background color and opacity */
-    backdrop-filter: blur(10px);
-    padding: 5px 10px;
-    border-radius: 10px;
     cursor: pointer;
     z-index: 2;
 }
 
-.account-info span {
-    margin-right: 10px;
+.account-info:hover .logout {
+    display: block;
 }
 
 .account-info .logout {
-    display: none; /* Initially hidden */
+    display: none;
+    margin-left: 10px;
+    color: #ff4b4b;
+    font-weight: 600;
 }
-
-.account-info:hover .logout {
-    display: block; /* Show on hover */
-}
-
-.account-info.authenticated .logout {
-    display: block; /* Show when authenticated */
-}
-
-/* Add other styles specific to JPad here */
