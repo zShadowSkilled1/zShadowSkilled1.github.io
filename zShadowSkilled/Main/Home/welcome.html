@@ -12,7 +12,13 @@
 
 <body>
     <div class="wrapper">
-        <h1>Welcome</h1>
+        <div class="header">
+            <h1>Welcome</h1>
+            <div class="account-info">
+                <span id="account-name">John Doe</span>
+                <span class="logout" onclick="logout()">Logout</span>
+            </div>
+        </div>
         <!-- Your content for the welcome page goes here -->
     </div>
     
@@ -45,6 +51,13 @@
             });
 
             return loginInfo;
+        }
+
+        function logout() {
+            // Clear cookies or perform any other necessary logout actions
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "password=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.href = "../../index.html"; // Redirect to login page after logout
         }
     </script>
 </body>
