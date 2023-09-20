@@ -29,3 +29,27 @@ body {
     font-size: 36px;
     margin-bottom: 20px;
 }
+
+/* Add this to your existing CSS file or create a new CSS file for welcome page */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.account-info {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.account-info span {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.account-info span.logout {
+    color: #ff4136; /* Red color for logout option */
+}
