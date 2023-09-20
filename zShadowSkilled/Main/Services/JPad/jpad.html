@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JPad</title>
-    <link rel="stylesheet" href="jpad.css"> <!-- Link to your CSS file for JPad -->
+    <link rel="stylesheet" href="jpad.css">
 </head>
 
 <body>
@@ -16,22 +16,16 @@
     <!-- Account display moved outside the wrapper -->
     <div class="account-info">
         <span id="account-name"></span>
-        <a class="logout" href="https://zshadowskilled.vercel.app/zShadowSkilled/" target="_blank">Logout</a>
+        <span class="logout"><a href="https://zshadowskilled.vercel.app/zShadowSkilled/">Logout</a></span>
     </div>
 
-    <div class="wrapper">
-        <div class="header">
-            <h1>JPad</h1>
-        </div>
-        <div class="container">
-            <textarea id="note-content" placeholder="Start typing your note..."></textarea>
-            <button class="button" onclick="saveNote()">Save Note</button>
-        </div>
+    <div class="container">
+        <textarea id="note-content" placeholder="Start typing your note here..."></textarea>
+        <button class="button" onclick="saveNote()">Save Note</button>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Retrieve and display the account name
             var accountName = getAccountName();
             document.getElementById('account-name').textContent = accountName;
         });
@@ -54,8 +48,7 @@
 
         function saveNote() {
             var noteContent = document.getElementById("note-content").value;
-            
-            // Check if the note is empty
+
             if (!noteContent.trim()) {
                 alert("Note is empty. Please add some content before saving.");
                 return;
@@ -65,17 +58,11 @@
             var a = document.createElement("a");
             a.href = URL.createObjectURL(blob);
 
-            // Set a default file name (you can change this)
             var fileName = "note.txt";
             a.download = fileName;
 
-            // Append the anchor element to the body
             document.body.appendChild(a);
-
-            // Programmatically trigger a click event on the anchor element
             a.click();
-
-            // Remove the anchor element from the body
             document.body.removeChild(a);
         }
     </script>
