@@ -16,7 +16,7 @@
 
     <!-- Account display moved outside the wrapper -->
     <div class="account-info">
-        <span id="account-name">John Doe</span>
+        <span id="account-name"></span>
         <span class="logout" onclick="logout()">Logout</span>
     </div>
 
@@ -28,12 +28,18 @@
     </div>
     
     <script>
+        // Content within the <script> section in welcome.html
+
         document.addEventListener("DOMContentLoaded", function() {
             var isAuthenticated = checkAuthentication(); // Check if the user is authenticated
 
             if (!isAuthenticated) {
                 window.location.href = "../../index.html"; // Adjust the path to index.html
             }
+
+            // Retrieve and display the account name
+            var accountName = getAccountName();
+            document.getElementById('account-name').textContent = accountName;
         });
 
         function checkAuthentication() {
@@ -56,6 +62,22 @@
             });
 
             return loginInfo;
+        }
+
+        function getAccountName() {
+            var cookies = document.cookie.split(';');
+            var accountName = '';
+
+            cookies.forEach(cookie => {
+                var parts = cookie.split('=');
+                var key = parts[0].trim();
+                var value = parts[1] ? parts[1].trim() : '';
+                if (key === 'username') {
+                    accountName = value;
+                }
+            });
+
+            return accountName;
         }
 
         function logout() {
