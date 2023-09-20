@@ -6,85 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JPad - Online Notepad</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your existing CSS file -->
-    <link rel="stylesheet" href="welcome.css"> <!-- Link to the CSS for account display system -->
-    <link rel="stylesheet" href="jpad.css"> <!-- Link to your JPad-specific CSS -->
+    <link rel="stylesheet" href="jpad.css"> <!-- Link to JPad-specific CSS -->
+    <link rel="stylesheet" href="../../welcome.css"> <!-- Link to account display system CSS -->
 </head>
 
 <body>
     <!-- Blur background for account display -->
     <div class="account-background"></div>
 
-    <!-- Account display moved outside the wrapper -->
+    <!-- Account display -->
     <div class="account-info">
         <span id="account-name">John Doe</span>
         <span class="logout" onclick="logout()">Logout</span>
     </div>
 
-    <h1>JPad - Online Notepad</h1>
+    <div class="wrapper">
+        <div class="header">
+            <h1>JPad - Online Notepad</h1>
+        </div>
+        <!-- Your content for JPad goes here -->
+    </div>
 
-    <!-- Your notepad content goes here -->
-    <textarea id="noteContent" rows="10" cols="50"></textarea>
-
-    <!-- Save Button -->
-    <button onclick="saveNote()">Save</button>
-
+    <script src="jpad.js"></script> <!-- Include JPad-specific JavaScript -->
     <script>
-        // Account display system logic
-        function checkAuthentication() {
-            // Retrieve the saved login information from cookies
-            var loginInfo = getLoginCookies();
-
-            // Check if both username and password are available in cookies
-            if (loginInfo.username) {
-                document.getElementById('account-name').textContent = loginInfo.username;
-                document.querySelector('.account-info').classList.add('authenticated');
-            } else {
-                window.location.href = "../../index.html"; // Redirect to login page
-            }
-        }
-
-        function logout() {
-            // Clear all website cookies
-            var cookies = document.cookie.split(';');
-            cookies.forEach(cookie => {
-                var parts = cookie.split('=');
-                var cookieName = parts[0].trim();
-                document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-            });
-
-            window.location.href = "../../index.html"; // Redirect to login page after logout
-        }
-
-        function getLoginCookies() {
-            var cookies = document.cookie.split(';');
-            var loginInfo = {};
-
-            cookies.forEach(cookie => {
-                var parts = cookie.split('=');
-                var key = parts[0].trim();
-                var value = parts[1] ? parts[1].trim() : ''; // Check if value exists
-                loginInfo[key] = value;
-            });
-
-            return loginInfo;
-        }
-
-        // JPad-specific logic
         document.addEventListener("DOMContentLoaded", function() {
-            checkAuthentication(); // Check if the user is authenticated
+            var isAuthenticated = checkAuthentication(); // Check if the user is authenticated
+
+            if (!isAuthenticated) {
+                window.location.href = "../../index.html"; // Redirect to login page if not authenticated
+            }
         });
-
-        function saveNote() {
-            var noteContent = document.getElementById("noteContent").value;
-            // You can implement logic to save the note content here
-            // For example, send it to a server or store it in local storage
-            // You can also add functionality to display a success message or handle errors
-        }
     </script>
-
-    <script src="jpad.js"></script> <!-- Include your JPad-specific JavaScript file -->
-    <script src="script.js"></script> <!-- Include your existing script.js file -->
 </body>
 
 </html>
