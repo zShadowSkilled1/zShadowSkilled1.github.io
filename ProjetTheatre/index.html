@@ -10,21 +10,18 @@ body {
 <link rel="stylesheet" href="styles.css.css">
 </head>
 <body>
+    <script>
+    function statusUpdate() {
+      document.getElementById("status").textContent="newtext";
+    }
+      
+  </script>
 <center>
 <h1>Question 1</h1>
 <p>Quel peuple a inventé le théatre ?</p>
-  <button id="Qestion1">Les Grecs</button>
+  <button id="Qestion1" onclick="statusUpdate">Les Grecs</button>
   <span id="status"></span>
 </center>
-
-  <script>
-    const q1 = document.GetElementById("Question1");
-
-    q1.addEventListener("Click", function() {
-      alert("test")
-      document.getElementById("status").textContent="newtext";
-    });
-  </script>
 
 </body>
 </html>
