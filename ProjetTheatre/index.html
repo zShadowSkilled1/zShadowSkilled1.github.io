@@ -7,6 +7,21 @@
     body {
         font-family: 'Poppins';
         font-size: 22px;
+        margin: 0;
+        padding: 0;
+        background: url('image.png') no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white; /* Adjust text color for better visibility */
     }
   </style>
   <link rel="stylesheet" href="styles.css.css">
@@ -17,7 +32,7 @@
         <h1>Question 1</h1>
         <p>Quel peuple a inventé le théatre ?</p>
         <button id="Question1" onclick="MauvaiseReponse()">Les Grecs</button>
-      <button onclick="BonneReponse()">Le peuple Minoen</button>
+        <button onclick="BonneReponse()">Le peuple Minoen</button>
         <span id="status"></span>
     </center>
 </body>
