@@ -13,8 +13,19 @@ body {
 <center>
 <h1>Question 1</h1>
 <p>Quel peuple a inventé le théatre ?</p>
-  <button type="button">Les Grecs</button>
+  <button id="Qestion1">Les Grecs</button>
+  <p id="status"></p>
 </center>
+
+  <script>
+    const q1 = document.GetElementById("Question1");
+
+    q1.addEventListener("Click", function() {
+      const status = document.querySelecetor("#status");
+
+      status.textContent = "Mauvaise réponse"
+    });
+  </script>
 
 </body>
 </html>
