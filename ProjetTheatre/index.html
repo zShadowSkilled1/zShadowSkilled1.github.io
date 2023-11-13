@@ -1,27 +1,23 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html>
 <head>
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Poppins';font-size: 22px;
-}
-</style>
-<link rel="stylesheet" href="styles.css.css">
+  <style>
+    body {
+        font-family: 'Poppins';
+        font-size: 22px;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-    function statusUpdate() {
-      document.getElementById("status").textContent="newtext";
-    }
-      
-  </script>
-<center>
-<h1>Question 1</h1>
-<p>Quel peuple a inventé le théatre ?</p>
-  <button id="Qestion1" onclick="statusUpdate">Les Grecs</button>
-  <span id="status"></span>
-</center>
-
+    <center>
+        <h1>Question 1</h1>
+        <p>Quel peuple a inventé le théatre ?</p>
+        <button id="Question1" onclick="MauvaiseReponse()">Les Grecs</button>
+        <span id="status"></span>
+    </center>
 </body>
 </html>
