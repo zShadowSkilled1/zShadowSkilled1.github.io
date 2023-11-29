@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(17, 24, 39);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  padding: 40px;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  padding-left: 50px;
+}
+
+.content {
+  margin-bottom: 20px; /* Adjust the margin as needed */
+}
+
+.textbox-container {
+  margin-bottom: 20px;
+}
+
+.textbox {
+  width: 200px; /* Initial width */
+  height: 30px; /* Initial height */
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid white;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  transition: width 0.3s, height 0.3s; /* Transition for width and height change */
+}
+
+h1 {
+  margin-bottom: 10px; /* Adjust the margin to bring "RoDown" closer to the textbox */
+}
